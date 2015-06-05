@@ -11,7 +11,7 @@
  *
  * @author yozubear
  */
-class Admin {
+class AdminEntity {
     //put your code here
     public $admin_name;
     public $password;
