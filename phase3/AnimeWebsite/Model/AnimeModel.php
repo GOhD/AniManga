@@ -11,6 +11,8 @@
  *
  * @author weininghu
  */
+
+require ("Entities/AnimeEntity.php");
 class AnimeModel {
     //put your code here
     //Get all coffee genres from the database and return them in an array.

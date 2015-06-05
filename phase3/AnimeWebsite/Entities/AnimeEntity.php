@@ -2,6 +2,8 @@
 
 /* 
 class AnimeEntity, eliminate all the blank space and replaced with underscore
+ * 
+ * @author weininghu
  */
 
 class AnimeEntity{
@@ -19,7 +21,7 @@ class AnimeEntity{
         $this->title = $title;
         $this->genre = $genre;
         $this->rating = $rating;
-        $this -> description = $description;
+        $this ->description = $description;
         $this ->season = $season;
         $this ->status = $status;
         $this ->start_date = $start_date;
