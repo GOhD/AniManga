@@ -11,6 +11,16 @@
  *
  * @author weininghu
  */
-class Character {
+class CharacterEntity {
     //put your code here
+    public $cname;
+    public $description;
+    public $rating;
+    
+    
+    function __construct($cname,$description,$rating){
+        $this->cname = $cname;
+        $this->description = $description;
+        $this->rating = $rating;
+    }
 }
