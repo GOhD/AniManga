@@ -13,9 +13,9 @@
             <nav id="navigation">
                 <ul id="nav">
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="Coffee.php">Coffee</a></li>
-                    <li><a href="#">Shop</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="Coffee.php">Anime</a></li>
+                    <li><a href="#">Manga</a></li>
+                    <li><a href="#">Forum</a></li>
                 </ul>
             </nav>
             
