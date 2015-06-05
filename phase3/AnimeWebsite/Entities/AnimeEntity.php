@@ -1,10 +1,10 @@
 <?php
 
 /* 
-class Anime, eliminate all the blank space and replaced with underscore
+class AnimeEntity, eliminate all the blank space and replaced with underscore
  */
 
-class Anime{
+class AnimeEntity{
     public $title;
     public $genre;
     public $rating;
