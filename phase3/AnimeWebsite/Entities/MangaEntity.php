@@ -28,6 +28,8 @@ class MangaEntity {
         $this->rating = $rating;
         $this->description = $description;
         $this->author = $author;
+        $this->volume = $volume;
+        $this->published_date = $published_date;
         
     }
 }
