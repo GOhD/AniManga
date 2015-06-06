@@ -18,7 +18,7 @@
                 <ul id="nav">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="Coffee.php">Anime</a></li>
-                    <li><a href="#">Mana</a></li>
+                    <li><a href="#">Manga</a></li>
                     <li><a href="#">Forum</a></li>
                     <li><a href="#">VoiceActor</a></li>
                 </ul>
