@@ -75,7 +75,7 @@ CREATE TABLE Comment_Write_Contain
 ( 
 Forum ID   int, 
 Title  char (100),
-Msg  char (10000),
+Msg  char (100),
 Date  char (100),
 Email char (100),
 Primary key (Forum ID, Title, Msg, Date),
