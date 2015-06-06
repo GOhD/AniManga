@@ -10,6 +10,10 @@
             <div id="banner">             
             </div>
             
+            
+            
+            
+            
             <nav id="navigation">
                 <ul id="nav">
                     <li><a href="index.php">Home</a></li>
