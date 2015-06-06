@@ -15,8 +15,8 @@
 require ("Entities/AnimeEntity.php");
 class AnimeModel {
     //put your code here
-    //Get all coffee genres from the database and return them in an array.
-    function GetCoffeeGenres() {
+    //Get all anime genres from the database and return them in an array.
+    function GetAnimeGenres() {
         require 'Credentials.php';
 
         //Open connection and Select database.   

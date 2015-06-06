@@ -1,9 +1,9 @@
 CREATE TABLE Anime
 (
 Title   char(100),
-Genre  char(256),
+Genre  varchar(2000),
 Rating  int ,
-Description  char(10000),
+Description  char(100),
 Season  int,
 a_Status  char(100),
 Start_date  char(100),
@@ -14,9 +14,9 @@ Primary key (Title, Season)
 
 CREATE TABLE Manga
 (Title   char(100),
-Genre  char(256),
+Genre  char(200),
 Rating   int ,
-Description  char(10000),
+Description  char(100),
 Author   char (100),
 Volume  int,
 Published_date char(100),

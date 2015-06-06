@@ -29,7 +29,7 @@
             </div>
             
             <footer>
-                <p>All rights reserved</p>
+                <p>Created by team Pikapika</p>
             </footer>
         </div>
     </body>
