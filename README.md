@@ -1,2 +1,2 @@
 # Animanga
-The course project for CPSC304.
+This is an adnima database website built using php and html as well as MySQL
