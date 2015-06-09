@@ -19,8 +19,8 @@
                     <li><a href="index.php">Home</a></li>
                     <li><a href="Coffee.php">Anime</a></li>
                     <li><a href="#">Manga</a></li>
-                    <li><a href="#">Forum</a></li>
                     <li><a href="#">VoiceActor</a></li>
+                    <li><a href="#">Forum</a></li>
                 </ul>
             </nav>
             
