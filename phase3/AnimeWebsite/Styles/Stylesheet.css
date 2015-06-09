@@ -1,7 +1,7 @@
 body
 {
     font-family: lucida grande ,tahoma,verdana,arial,sans-serif;
-    background-color: #e9e9e9;
+    background-color:#097054;
 }
 
 body p
@@ -21,7 +21,7 @@ body p
 
 #banner
 {
-    background-image: url(../Images/up.jpg);
+    background-image: url(../Images/Anime/Neon-Genesis-Evangelion.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     border: 5px solid #dedede;    
@@ -34,6 +34,7 @@ body p
     width: 750px;
     margin: 20px 0 20px 0;
     padding: 10px;
+    
 }
 
 
@@ -46,6 +47,7 @@ footer
     border: 3px solid #E3E3E3;
     text-align: center;
     color: #fff;
+    background-color:#097054;
     background-image: url(../Images/bar_background2.png);
 }
 #sidebar
@@ -64,6 +66,7 @@ footer
     border: 3px solid #E3E3E3;
     margin-top: 20px;
     text-shadow: 0.1em 0.1em #333;
+    background-color: #097054;
     background-image: url(../Images/bar_background2.png);
 }
 

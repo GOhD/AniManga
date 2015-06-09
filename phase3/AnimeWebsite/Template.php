@@ -9,15 +9,10 @@
         <div id="wrapper">
             <div id="banner">   
                 
-                    <a style="color:orangered; text-align:center" href="#">Login</a>
-                    <a style="color:orangered; text-align:center" href="#">Register</a>
+                    <a style="color:whitesmoke; font-size:25px" href="#">Login</a>
+                    <a style="color:whitesmoke; font-size:25px" href="#">Register</a>
             </div>
-            
-            
-              
-             
-            
-           
+ 
             
             <nav id="navigation">
                 <ul id="nav">
@@ -36,7 +31,7 @@
       
             
             <footer>
-                <p style="color:orangered;">Created by team Pikapika</p>
+                <p style="color:whitesmoke;">Created by team Pikapika</p>
             </footer>
         </div>
     </body>
