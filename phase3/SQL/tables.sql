@@ -1,9 +1,23 @@
+# Drop Table animanga.Anime;
+#Drop Table animanga.Manga;
+# Drop Table animanga.my_Character;
+#Drop Table animanga.Voice_Actor;
+#Drop Table animanga.Created_Forum_Forum;
+#Drop Table animanga.Subtopic_Create_Subtopic_Have;
+#Drop Table animanga.Comment_Write_Contain;
+#Drop Table animanga.Voice;
+#Drop Table animanga.Favored;
+#Drop Table animanga.c_In_a;
+#Drop Table animanga.Member;
+#Drop Table animanga.Admin;
+
+
 CREATE TABLE Anime
 (
 Title   char(100),
-Genre  varchar(2000),
+Genre  char(255),
 Rating  int ,
-Description  char(100),
+Description  varchar(10000),
 Season  int,
 a_Status  char(100),
 Start_date  char(100),
@@ -26,13 +40,13 @@ Primary key (Title, Author)
 CREATE TABLE Voice_Actor 
 ( Vname  char (100),
 Birthday  char(100),
-Gender  char(6),
-Bio  char(10000),
-Primary key (Name, Birthday));
+Gender  char(10),
+Bio  varchar(10000),
+Primary key (Vname, Birthday));
 
 CREATE TABLE my_Character 
 (Cname    char(100),
- Description   char(10000),
+ Description   varchar(10000),
  Rating   int,
 Primary key (Cname));
 
@@ -68,20 +82,21 @@ Date_created  char (100),
 Title  char (100),
 Email char (100),
 Primary key (Forum_ID, Title),
-Foreign key (Forum_ID) REFERENCES Create_Forum_Forum(Forum_ID))
+Foreign key (Forum_ID) REFERENCES Create_Forum_Forum(Forum_ID));
 
 
 CREATE TABLE Comment_Write_Contain
 ( 
-Forum ID   int, 
+Forum_ID   int, 
 Title  char (100),
-Msg  char (100),
-Date  char (100),
+Msg  varchar (10000),
+Date_written  char (100),
 Email char (100),
-Primary key (Forum ID, Title, Msg, Date),
-Foreign key (Forum ID, Title) REFERENCES Subtopic_Create_Subtopic_Have (Forum ID, title),
-Foreign key (Email) REFERENCES Admin(Email), Member(Email)
-)
+Primary key (Forum_ID, Title, Msg, Date_written),
+Foreign key (Forum_ID, Title) REFERENCES Subtopic_Create_Subtopic_Have (Forum_ID, title),
+Foreign key (Email) REFERENCES Admin(Email), 
+Foreign key (Email) REFERENCES Member(Email)
+);
 
 CREATE TABLE Voice
 (Title char(100),
@@ -89,25 +104,31 @@ CREATE TABLE Voice
 Birthday  char(100), 
 Vname  char(100),
 Cname char(100),
-Primary key (Title,Season,Birthday,Vname,Cname)),
+Primary key (Title,Season,Birthday,Vname,Cname),
 Foreign key (Title,Season) REFERENCES Anime(Title,Season),
 Foreign key (Birthday, Vname) REFERENCES VoiceActor(Birthday,Vname), 
-Foreign key (Cname) REFERENCES character(Cname));
+Foreign key (Cname) REFERENCES my_Character(Cname)
+);
 
 
 CREATE TABLE Favored
 (Title char (100),
  Email char (100),
 Primary key (Title, Email),
-Foreign key (Email) REFERENCES Admin(Email),Member(Email),
-Foreign key (Title) REFERENCES Anime(Title), Manga(Title));
+Foreign key (Email) REFERENCES Admin(Email),
+Foreign key (Email) REFERENCES Member(Email),
+Foreign key (Title) REFERENCES Anime(Title), 
+Foreign key (Title) REFERENCES Manga(Title)
+);
 
 CREATE TABLE c_In_a
 (Cname  char(100),
 Title  char(100),
 Primary key (Cname, Title),
 Foreign key (Cname) REFERENCES my_Character(Cname),
-Foreign key (Title) REFERENCES Anime(Title), Manga(Title));
+Foreign key (Title) REFERENCES Anime(Title), 
+Foreign key (Title) REFERENCES Manga(Title)
+);
 
 
 
