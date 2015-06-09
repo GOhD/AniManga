@@ -32,9 +32,7 @@
                 <?php echo $content; ?>
             </div>
             
-            <div id="sidebar">
-                
-            </div>
+      
             
             <footer>
                 <p>Created by team Pikapika</p>

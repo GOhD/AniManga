@@ -36,15 +36,6 @@ body p
     padding: 10px;
 }
 
-#sidebar
-{
-    float: right;
-    width: 250px;
-    height: 400px;
-    margin: 20px 10px;
-    padding: 10px;
-    border: 2px solid #E3E3E3;
-}
 
 footer
 {
@@ -57,6 +48,15 @@ footer
     color: #fff;
     text-shadow: 0.1em 0.1em #333;
     background-image: url(../Images/bar_background2.png);
+}
+#sidebar
+{
+    float: none;
+    width: 250px;
+    height: 375px;
+    margin: 20px 10px;
+    padding: 10px;
+    border: 2px solid #E3E3E3;
 }
 
 #navigation
@@ -129,6 +129,9 @@ footer
     border-radius: 10px;
     moz-border-radius: 10px;
 }
+
+
+
 
 .coffeeTable tr th, .coffeeTable tr td
 {
