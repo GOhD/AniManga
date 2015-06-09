@@ -11,8 +11,12 @@
             </div>
             
             
+                    <a style="color:maroon" href="#">Login</a>
+                    <a style="color:maroon" href="#">Register</a>
+              
+             
             
-            
+           
             
             <nav id="navigation">
                 <ul id="nav">
