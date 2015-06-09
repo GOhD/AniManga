@@ -7,12 +7,13 @@
     </head>
     <body>
         <div id="wrapper">
-            <div id="banner">             
+            <div id="banner">   
+                
+                    <a style="color:orangered; text-align:center" href="#">Login</a>
+                    <a style="color:orangered; text-align:center" href="#">Register</a>
             </div>
             
             
-                    <a style="color:maroon" href="#">Login</a>
-                    <a style="color:maroon" href="#">Register</a>
               
              
             
@@ -35,7 +36,7 @@
       
             
             <footer>
-                <p>Created by team Pikapika</p>
+                <p style="color:orangered;">Created by team Pikapika</p>
             </footer>
         </div>
     </body>
