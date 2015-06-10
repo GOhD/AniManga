@@ -144,7 +144,6 @@ Title char (100),
 Msg text,
 Date_written date,
 Email char (100),
-<<<<<<< HEAD
 Primary key (Forum_ID, Title, Msg, Date_written),
 Foreign key (Title, Forum_ID) REFERENCES Subtopic_Create_Subtopic_Have(Title, Forum_ID) on delete cascade on update cascade,
 Foreign key (Email) REFERENCES Admin(Email), 
@@ -152,11 +151,7 @@ Foreign key (Email) REFERENCES Member(Email)
 );
 
 
-=======
-Primary key (fid, Title, Date_written),
-Foreign key (Title, fid) REFERENCES Subtopic_Create_Subtopic_Have(Title, fid) on delete cascade on update cascade,
-Foreign key (Email) REFERENCES Users(Email)
-)ENGINE=InnoDB;
+
 
 insert into Animated_Series values
 ('Pokemon'),('Code_Geass'),('Shokugeki no Souma'), ('Naruto'), ('Shingeki no Kyojin'), ('Jyu oh sei'), ('Meitantei Conan'), ('Tokyo Ghoul'), ('Girls of the Wilds'), ('Bleach'), ('Noblesse'), ('Emma');
