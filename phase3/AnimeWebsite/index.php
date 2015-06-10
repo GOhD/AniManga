@@ -4,8 +4,7 @@ $username = "root@localhost";
 $password = "";
 $database = "test";
 $hostname = "localhost"; 
-$array=[];
-$x=0;
+
 //connection to the database
 $dbhandle = mysql_connect($hostname, $username, $password) 
   or die("Unable to connect to MySQL");
@@ -14,8 +13,11 @@ $dbhandle = mysql_connect($hostname, $username, $password)
 //select a database to work with
 $selected = mysql_select_db($database,$dbhandle) 
   or die("Could not select examples");
+//query to check for a random Anime recommendation
 $resultAnime = mysql_query("SELECT title,genre,rating from anime ORDER BY RAND() LIMIT 1");
+//query to check for a random Manga recommendation
 $resultManga = mysql_query("SELECT title,genre,description from manga ORDER BY RAND() LIMIT 1");
+//query to check for a random Character recommendation
 $resultCharacter = mysql_query("SELECT cname,description,rating from my_character ORDER BY RAND() LIMIT 1");
 //close the connection
 mysql_close($dbhandle);
