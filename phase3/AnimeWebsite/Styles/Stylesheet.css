@@ -60,6 +60,16 @@ footer
     border: 2px solid #E3E3E3;
 }
 
+#centerbar
+{
+    
+    width: 250px;
+    height: 375px;
+    margin: 20px 10px;
+    padding: 10px;
+    border: 2px solid #E3E3E3;
+}
+
 #navigation
 {
     height: 60px;
