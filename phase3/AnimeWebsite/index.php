@@ -1,6 +1,28 @@
 <?php
 $title = "Home";
-$content = '
+$username = "root@localhost";
+$password = "";
+$database = "test";
+$hostname = "localhost"; 
+$array=[];
+$x=0;
+//connection to the database
+$dbhandle = mysql_connect($hostname, $username, $password) 
+  or die("Unable to connect to MySQL");
+
+
+//select a database to work with
+$selected = mysql_select_db($database,$dbhandle) 
+  or die("Could not select examples");
+$resultAnime = mysql_query("SELECT title,genre,rating from anime ORDER BY RAND() LIMIT 1");
+$resultManga = mysql_query("SELECT title,genre,description from manga ORDER BY RAND() LIMIT 1");
+$resultCharacter = mysql_query("SELECT cname,description,rating from my_character ORDER BY RAND() LIMIT 1");
+//close the connection
+mysql_close($dbhandle);
+
+
+
+/**$content = '
        
         <h1>Anime Of The Day</h1>
          <div ><img src="Images/Anime/FullMetalAlchemist.jpg"  hspace="20"><br>
@@ -31,6 +53,6 @@ $content = '
             </div>
          
          
-            ';
+            ';**/
 include 'Template.php';
 ?>
