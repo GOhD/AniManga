@@ -12,7 +12,7 @@ class AnimeEntity{
     public $rating;
     public $descripstion;
     public $season;
-    public $status;
+    public $a_status;
     public $start_date;
     public $studio;
     public $num_of_episode;
@@ -23,7 +23,7 @@ class AnimeEntity{
         $this->rating = $rating;
         $this ->description = $description;
         $this ->season = $season;
-        $this ->status = $status;
+        $this ->a_status = $status;
         $this ->start_date = $start_date;
         $this ->studio = $studio;
         $this ->num_of_episode = $num_of_episode;
