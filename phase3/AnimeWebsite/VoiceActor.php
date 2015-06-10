@@ -3,6 +3,10 @@ $title = "Voice Actor";
 $content = '
        
         <h1>Find Voice Actor</h1> 
+        
+        <form action="dummySearchPHP.php" method="post">
+        <input type="text" name="search">
+        <input type="submit" value="Go">
     
         <div><img src="Images/VoiceActor/Mikako.jpg" hspace="20"><br>
         <FONT COLOR="Maroon">Name:</FONT> Mikako Takahashi<br>
