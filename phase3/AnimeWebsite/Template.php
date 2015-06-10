@@ -19,7 +19,8 @@
                     <li><a href="index.php">Home</a></li>
                     <li><a href="Anime.php">Anime</a></li>
                     <li><a href="Manga.php">Manga</a></li>
-                    <li><a href="#">VoiceActor</a></li>
+                    <li><a href="VoiceActor.php">VoiceActor</a></li>
+                    <li><a href="Character.php">Character</a></li>
                     <li><a href="#">Forum</a></li>
                 </ul>
             </nav>

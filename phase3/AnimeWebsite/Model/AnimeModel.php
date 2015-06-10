@@ -56,12 +56,19 @@ class AnimeModel {
     }
 
     //Get animeEntity objects from the database and return them in an array.
+    // Genre should be input by the user with comma seperated genre
     function GetAnimeByGenre($genre) {
         require 'Credentials.php';
 
         //Open connection and Select database.     
         mysql_connect($host, $user, $passwd) or die(mysql_error);
         mysql_select_db($database);
+        $result = array();
+        $genre_token = explode(',',$genre);
+        foreach($genre_token as $genre){
+            $genre = mysqli_real_escape_string(trim($genre));
+            $query = "SELECT * FROM anime WHERE genre LIKE '$genre'";
+        }
 
         $query = "SELECT * FROM anime WHERE genre LIKE '$genre'";
         $result = mysql_query($query) or die(mysql_error());
