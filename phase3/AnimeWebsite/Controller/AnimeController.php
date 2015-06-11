@@ -13,11 +13,7 @@
  */
 
 require ("Model/AnimeModel.php");
-class AnimeController {
-    //put your code here
 
-
-//Contains non-database related function for the Coffee page
 class AnimeController {
 
     function CreateAnimeDropdownList() {
@@ -91,4 +87,4 @@ class AnimeController {
     }
 
 }
-}
+
