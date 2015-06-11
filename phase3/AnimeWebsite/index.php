@@ -3,7 +3,7 @@ $title = "Home";
 include '/Model/Credentials.php';
 
 //connection to the database
-$dbhandle = mysqli_connect($host, $user, $passwd,$database) 
+$dbhandle = mysqli_connect($host, $user, "F950308r",$database) 
   or die("Unable to connect to MySQL");
 
 
