@@ -132,7 +132,7 @@ footer
     padding: 10px;
 }
 
-.coffeeTable
+.mangaTable
 {
     width: 750px;
     height: 250px;
@@ -145,15 +145,22 @@ footer
 
 
 
-.coffeeTable tr th, .coffeeTable tr td
+.mangaTable tr th, .mangaTable tr td
 {
     text-align: left;
     padding: 0px 5px 0 5px;
 }
 
-.coffeeTable img
+.mangaTable img
 {
     padding: 0px 10px 10px 10px;
     height: 150px;
     width: 150px;
+}
+
+.searchsubmit 
+{
+	cursor: pointer;
+	align: left;
+	width:60px;
 }

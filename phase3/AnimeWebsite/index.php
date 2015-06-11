@@ -1,8 +1,8 @@
 <?php
 $title = "Home";
-$username = "root@localhost";
-$password = "";
-$database = "test";
+$username = "root";
+$password = "root";
+$database = "animanga";
 $hostname = "localhost"; 
 
 //connection to the database
