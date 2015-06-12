@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
 $title="Animanga Forum";
-$content=array();
 
 require "./Forum_globals.php";
 
