@@ -30,10 +30,10 @@ require ("Entities/MangaEntity.php");
                 $published_date = $row[6];
                 $img = $row[7];
                 
-                echo $img;
+                // echo $img;
             
                 $manga = new MangaEntity($title, $genre, $rating, $description, $author, $volume, $published_date,$img);
-                
+               
                 $output .= 
                         "<table class = 'mangaTable'>
                         <tr>
@@ -100,7 +100,7 @@ require ("Entities/MangaEntity.php");
                 </ul>
             </nav>
         </div>  
-        <!--This part is for the search box -->
+        <!--This part is for the search by genre for manga, we use the query for selection -->
         <form action ="Manga.php"   method ="post">
             <input type="text" name = "search_genre" placeholder="search for genre of manga">
             <input type ="submit" value = ">>">

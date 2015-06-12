@@ -23,7 +23,7 @@ class MangaEntity {
     public $img;
     
     
-    function __construct($title,$genre,$rating,$description,$author,$volume,$published_date){
+    function __construct($title,$genre,$rating,$description,$author,$volume,$published_date,$img){
         $this->title = $title;
         $this->genre = $genre;
         $this->rating = $rating;
