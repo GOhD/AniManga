@@ -78,7 +78,7 @@ require ("Entities/CharacterEntity.php");
                     <li><a href="Manga.php">Manga</a></li>
                     <li><a href="VoiceActor.php">VoiceActor</a></li>
                     <li><a href="Character.php"><strong>Character</strong></a></li>
-                    <li><a href="#">Forum</a></li>
+                    <li><a href="Forum.php">Forum</a></li>
                 </ul>
             </nav>
          

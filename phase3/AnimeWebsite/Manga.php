@@ -1,10 +1,11 @@
 <?php
 
 require ("Entities/MangaEntity.php");
+require ("Model/Credentials.php");
  // $output = '';
   //Open connection and Select database.
    
-       $db = mysqli_connect("localhost", "root", "root", "animange");
+       $db = mysqli_connect($host, $user, $passwd, $database);
        
        if (mysqli_connect_errno()) {
           printf("Connect failed: %s\n", mysqli_connect_error());
@@ -96,7 +97,7 @@ require ("Entities/MangaEntity.php");
                     <li><a href="Manga.php"><strong>Manga</strong></a></li>
                     <li><a href="VoiceActor.php">VoiceActor</a></li>
                     <li><a href="Character.php">Character</a></li>
-                    <li><a href="#">Forum</a></li>
+                    <li><a href="Forum.php">Forum</a></li>
                 </ul>
             </nav>
         </div>  
