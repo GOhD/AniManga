@@ -11,7 +11,7 @@
  *
  * @author weininghu
  */
-class Character {
+class CharacterEntity {
     //put your code here
     public $cname;
     public $description;
