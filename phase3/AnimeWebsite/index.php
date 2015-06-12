@@ -3,14 +3,15 @@ $title = "Home";
 
 $username = "root";
 $password = "root";
-$database = "animanga";
+$database = "animange";
 $hostname = "localhost"; 
 
-include '/Model/Credentials.php';
+
+include './Model/Credentials.php';
 
 
 //connection to the database
-$dbhandle = mysqli_connect($host, $user, "F950308r",$database) 
+$dbhandle = mysqli_connect($host, $user, $passwd ,$database) 
   or die("Unable to connect to MySQL");
 
 
