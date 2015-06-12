@@ -2,7 +2,7 @@
 
 require ("Entities/MangaEntity.php");
 require ("Model/Credentials.php");
- // $output = '';
+  $output = '';
   //Open connection and Select database.
    
        $db = mysqli_connect($host, $user, $passwd, $database);
