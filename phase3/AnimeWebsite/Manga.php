@@ -12,10 +12,12 @@ require ("Entities/MangaEntity.php");
         }
         if (isset($_POST['search_genre'])){
             $term = $_POST['search_genre'];
-            //if (!is_string($_POST['search_genre'])){
-                echo gettype($term);
-            //'Invalid input type,please enter in a string!';
-            //}
+            
+                //echo gettype($term);
+             if ((is_numeric($term))|(is_bool($term))){
+                    echo "Please enter type string for searching!";
+                }
+                
             $result = $db->query("SELECT * FROM Manga where Genre LIKE '%$term%'") or die($db->error);
             $count = $result->num_rows;
             if ($result->num_rows){

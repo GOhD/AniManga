@@ -2,7 +2,7 @@
 //phpinfo();
 include "./Model/Credentials.php";
 
-$mysqli = new mysqli('127.0.0.1', $user, 'F950308r', $database); 
+$mysqli = new mysqli($host, $user, $passwd, $database); 
 if($mysqli->connect_errno) {
   die('Sorry the connection was not successful');
 }

@@ -1,10 +1,11 @@
 <?php
 
-
+require ("Entities/AnimeEntity.php");
+include '/Model/Credentials.php';
  $output = '';
   //Open connection and Select database.
    
-       $db = mysqli_connect("localhost", "root", "root", "animange");
+       $db = mysqli_connect($host, $user, $passwd,$database) or die("database not linked!");
        
        if (mysqli_connect_errno()) {
           printf("Connect failed: %s\n", mysqli_connect_error());
