@@ -20,9 +20,13 @@ require ("Model/Credentials.php");
                 }
                 
             $result = $db->query("SELECT * FROM Manga where Genre LIKE '%$term%'") or die($db->error);
-            $count = $result->num_rows;
+            $count1 = $db->query("SELECT count(*) from Manga where genre like '%$term%'") or die($db->error);
+            $newrow = mysqli_fetch_array($count1);
+            
+            echo 'yay, there are '.$newrow[0].' results that meet ur input!';
+            
             if ($result->num_rows){
-            echo 'yay, there are '.$count.' results that meet ur input!';
+            
             while($row = mysqli_fetch_array($result)){
                 $title = $row[0];
                 $genre = $row[1];
