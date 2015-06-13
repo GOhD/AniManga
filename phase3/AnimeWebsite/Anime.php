@@ -1,7 +1,7 @@
 <?php
 
 
-require ("Model/Credentials.php");
+require ("./Model/Credentials.php");
  $output = '';
   //Open connection and Select database.
    
