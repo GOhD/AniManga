@@ -38,7 +38,10 @@ require "./Forum_globals.php";
                padding:5px;
           }
 
-          #comment {
+          #comment_box {
+               background-color:#CCCCFF;
+               border-style:double;
+               border-color:#0000FF;
           }               
 
         </style>
@@ -77,10 +80,33 @@ require "./Forum_globals.php";
                         //echo '<pre>',print_r($subtopic_row),'</pre>';
                         echo "<div id='forum_content'>
                                 <p>",$comment['msg'],
-                             "</div><br>";
+                             "</p></div><br>";
                       }
                     ?>
                   </center>
+                </div>
+                <div id="comment_box">
+                  <center><h2>Enter a Comment!</h2></center>
+                  <form id="contact-form" action="script.php" method="post">
+                      <ul>
+                        <li>
+                          <label for="name">Full Name:</label>
+                          <input type="text" name="name" id="name" value="" />
+                        </li>
+                        <li>
+                          <label for="email">Email:</label>
+                          <input type="text" name="email" id="email" value="" />
+                        </li>
+                        <li>
+                          <label for="comments">Comment:</label>
+                          <textarea name="comments" id="comments" cols="25" rows="3"></textarea>
+                        </li>
+                        <li>
+                          <input type="submit" value="submit" />
+                          <input type="reset" value="reset" />
+                        </li>
+                      </ul>
+                  </form>
                 </div>
             </div>
             
