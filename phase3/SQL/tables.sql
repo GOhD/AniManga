@@ -77,6 +77,8 @@ Admin_name  char (100),
 a_Password  char (20),
 Primary key (Email),
 Foreign key (Email) REFERENCES Users(Email)
+on delete cascade
+on update cascade
 )ENGINE=InnoDB;
 
 CREATE TABLE Member
@@ -87,6 +89,8 @@ Username  char (100),
 Password  char (20),
 Primary key (Email),
 Foreign key (Email) REFERENCES Users(Email)
+on delete cascade
+on update cascade
 )ENGINE=InnoDB;
 
 #Tables for Relationship
@@ -225,17 +229,23 @@ insert into Manga values
 'Strange murders are happening in Tokyo. Due to liquid evidence at the scene, the police conclude the attacks 
 are the results of "eater" type ghouls. College buddies Kaneki and Hide come up with the idea that ghouls are 
 imitating humans so thats why they have not ever seen one. Little did they know that their theory may very 
-well become reality.', 'Ishida Sui', 14, '2012-02-04', null),
+well become reality.', 'Ishida Sui', 14, '2012-02-04','http://a.mfcdn.net/store/manga/10024/cover.jpg?1432882783'),
+
+
+
 ('Girls of the Wilds', 'Action, Comedy, Drama, Harem, Martial Arts, Romance', 2,
 'Wilds High has a 42-year history as a fighting specialized, girls only, private high school meant solely for 
 the elite. It is also the place that Wilds-League is held: the most popular event in the country and the only 
-place in the world where teenage girls have brutal fights with their lives on the line.', 'Hun', 1, '2011-11-08', null),
+place in the world where teenage girls have brutal fights with their lives on the line.', 'Hun', 1, '2011-11-08','http://upload.wikimedia.org/wikipedia/en/f/fc/Girls_of_the_Wild%27s_%28manhwa%29_Cover.jpg'),
+
+
 ('Naruto', 'Animation, Action, Adventure, Comedy, Fantasy, Thriller', 5, 
 'Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto 
 Uzumaki, an adolescent ninja who constantly searches for recognition and dreams to become the Hokage, the 
 ninja in his village who is acknowledged as the leader and the strongest of all. The series is based on a 
 one-shot manga by Kishimoto that was published in the August 1997 issue of Akamaru Jump.', 'Masashi Kishimoto',
-72, '2007-10-19', null),
+72, '2007-10-19', 'http://a.mfcdn.net/store/manga/8/cover.jpg?1431506514'),
+
 ('Bleach', 'Action, Comedy, Drama, Mystery, School Life', 4,
 'Ichigo Kurosaki has always been able to see ghosts, but this ability does not change his life nearly as much 
 as his close encounter with Rukia Kuchiki, a Soul Reaper and member of the mysterious Soul Society. While 
@@ -243,7 +253,8 @@ fighting a Hollow, an evil spirit that preys on humans who display psychic energ
 Ichigo some of her powers so that he can save his family; but much to her surprise, Ichigo absorbs every last 
 drop of her energy. Now a full-fledged Soul Reaper himself, Ichigo quickly learns that the world he inhabits 
 is one full of dangerous spirits, and along with Rukia--who is slowly regaining her powers--its Ichigos job 
-to protect the innocent from Hollows and help the spirits themselves find peace.', 'Kubo Tite', 68, '2007-10-14', null),
+to protect the innocent from Hollows and help the spirits themselves find peace.', 'Kubo Tite', 68, '2007-10-14','http://a.mfcdn.net/store/manga/9/cover.jpg?1434009375'),
+
 ('Noblesse', 'Action, Comedy, Drama, Mystery, School Life', 5,
 'He awakens. For 820 years he has slumbered with no knowledge of mankinds advancements and scientific 
 achievments. The land which he once knew has become an unfamiliar place with new technologies, attitudes, 
@@ -253,19 +264,21 @@ Rai decides that this high school would be the perfect place to help him learn a
 enrolls, and suddenly becomes the friend of Shinwoo, an immature teenager who is also a master martial 
 artist. But this new world is no safer than the old, and the dignified, bewildered, technologically 
 illiterate Rai finds himself caught up in adventures both hilarious and dangerous.', 'Son Jae-ho',
-4, '2010-02-28', null),
+4, '2010-02-28','http://upload.wikimedia.org/wikipedia/en/0/07/Noblesse_%28manhwa%29_Cover.jpg'),
+
 ('Shokugeki no Souma', 'Comedy, Ecchi, School, Shounen', 4,
 'Yukihira Soumas dream is to become a full-time chef in his fathers restaurant and surpass his 
 fathers culinary skill. But just as Yukihira graduates from middle schools his father, Yukihira 
 Jouichirou, closes down the restaurant to cook in Europe. Although downtrodden, Soumas fighting spirit 
 is rekindled by a challenge from Jouichirou which is to survive in an elite culinary school where only 
-10% of the students graduate. Can Souma survive?', 'Tsukada Yuuto', 14, '2012-11-30', null),
+10% of the students graduate. Can Souma survive?', 'Tsukada Yuuto', 14, '2012-11-30','http://a.mangatown.com/store/manga/12114/ocover.jpg?v=1433389711'),
+
 ('Emma', 'Drama, Historical, Romance', 4,
 'In Victorian-era England, a young girl is rescued from a life of destitution and raised to become a 
 proper British maid. Emma meets William, the eldest son of a wealthy family, and immediately falls in 
 love with him. William shares her feelings, but the strict rules of their society prevent their 
 relationship from ever coming out in the open. Traditional class distinctions and rich, historical 
-details provide the backdrop for this appealing romance.', 'Kaoru Mori', 10, '2007-10-16', null);
+details provide the backdrop for this appealing romance.', 'Kaoru Mori', 10, '2007-10-16','http://a.mfcdn.net/store/manga/543/cover.jpg?1358844668');
 
 insert into Voice_Actor values
 ('Ikue Ohtani', '1965-08-18', 'Female', 
