@@ -145,10 +145,10 @@ CREATE TABLE Comment_Write_Contain
 ( 
 fid int, 
 Title char (100),
-Msg text,
+Msg char(255),
 Date_written date,
 Email char (100),
-Primary key (fid, Title, Date_written),
+Primary key (fid, Title, Msg, Date_written),
 Foreign key (Title, fid) REFERENCES Subtopic_Create_Subtopic_Have(Title, fid) on delete cascade on update cascade,
 Foreign key (Email) REFERENCES Users(Email)
 )ENGINE=InnoDB;
