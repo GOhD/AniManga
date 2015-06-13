@@ -13,9 +13,6 @@
             <div id="banner">   
 
 
-
-
-                
                 <a style="color:whitesmoke; font-size:25px" href="Login.php">Login</a>
                 <a style="color:whitesmoke; font-size:25px" href="Register.php">Register</a>
 

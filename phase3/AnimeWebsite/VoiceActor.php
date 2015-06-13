@@ -73,8 +73,8 @@ require ("Model/Credentials.php");
         <div id="wrapper">
             <div id="banner">   
                 
-                    <a style="color:whitesmoke; font-size:25px" href="login.php">Login</a>
-                    <a style="color:whitesmoke; font-size:25px" href="#">Register</a>
+                    <a style="color:whitesmoke; font-size:25px" href="Login.php">Login</a>
+                    <a style="color:whitesmoke; font-size:25px" href="Register.php">Register</a>
             </div>
  
             

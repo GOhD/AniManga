@@ -124,7 +124,7 @@ if (!empty($_POST)) {
                 <input type="text" name="realname" value="" /> 
                 <label>Password:</label> 
                 <input type="password" name="password" value="" /> <br /><br />
-                <p style="color:darkred;">* You may enter a false email address if desired. This demo database does not store addresses for purposes outside of this tutorial.</p><br />
+                <p style="color:darkred;">* You may enter a false email address if desired.</p><br />
                 <input type="submit" class="btn btn-info" value="Register" /> 
             </form>
         </div>

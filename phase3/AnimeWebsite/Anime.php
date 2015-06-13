@@ -88,12 +88,10 @@ require ("./Model/Credentials.php");
         <div id="wrapper">
             <div id="banner">   
                 
-<<<<<<< HEAD
-                    
-=======
+
                     <a style="color:whitesmoke; font-size:25px" href="login.php">Login</a>
-                    <a style="color:whitesmoke; font-size:25px" href="#">Register</a>
->>>>>>> 4cbed12f1b87c264e96ca3a1b56a2837074c45b8
+                    <a style="color:whitesmoke; font-size:25px" href="Register.php">Register</a>
+
             </div>
  
             
