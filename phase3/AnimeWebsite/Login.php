@@ -15,6 +15,10 @@ if(isset($_POST['password'])&&isset($_POST['email_login'])){
             $row = mysqli_fetch_array($database_mem);
             if($email_login==$row[0]) {            
                 if($row[3] == $password){
+                    session_start();
+                    $_SESSION['username']=$row[1];
+                    $_SESSION['useremail']=$email_login;
+                    header('Location: member_acc.php');
                     echo 'congrats you got member password match';
                 }else{
                     echo'incorrect member password, please try again';
@@ -25,6 +29,7 @@ if(isset($_POST['password'])&&isset($_POST['email_login'])){
             if(mysqli_num_rows($database_admin)==1){
                 $row = mysqli_fetch_array($database_admin);
                 if($row[3] == $password){
+                    header('Location: admin_acc.php');
                     echo 'congrats you got admin password match';
                 }else{
                     echo 'wrong admin password, please try again.';
@@ -52,7 +57,7 @@ if(isset($_POST['password'])&&isset($_POST['email_login'])){
         <div id="wrapper">
             <div id="banner">   
                 
-                <a style="color:whitesmoke; font-size:25px" href="Login.php">Login</a>
+                <a style="color:black; font-size:25px" href="Login.php">Login</a>
                     <a style="color:whitesmoke; font-size:25px" href="#">Register</a>
             </div>
  
@@ -69,11 +74,11 @@ if(isset($_POST['password'])&&isset($_POST['email_login'])){
             </nav>
         </div>  
         
-        
-        <form action = "Login.php" method = "POST">
-            email:<br>  
-            <input type ="text" name ="email_login"><br>
-            password:<br>
+        <br><br><br><br>
+        <form action = "Login.php" method = "POST" align="center">
+            <a style="color:lightgoldenrodyellow; font-size:18px">email:</a><br>  
+            <input type ="text" name ="email_login"><br><br>
+            <a style="color:lightgoldenrodyellow; font-size:18px">password:</a><br>
             <input type ="password" name ="password"><br><br>
             <input type = "submit" value ="Login">
             </form>
