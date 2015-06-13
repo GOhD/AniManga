@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
+session_start();
 $title="Animanga Forum";
-$forum_topic = $_GET['topic'];
-$topic_list = array();
+$current_useremail = $_SESSION['useremail'];
 
 require "./Forum_globals.php";
 
@@ -35,6 +35,7 @@ require "./Forum_globals.php";
                padding:5px;
           }
 
+          
                
 
         </style>
@@ -43,8 +44,8 @@ require "./Forum_globals.php";
         <div id="wrapper">
             <div id="banner">   
                 
-                    <a style="color:whitesmoke; font-size:25px" href="Login.php">Login</a>
-                    <a style="color:whitesmoke; font-size:25px" href="#">Register</a>
+                    <a style="color:whitesmoke; font-size:25px" href="Logout.php">Logout</a><br>
+                    <a style="color:greenyellow; font-size:20px" ><?php echo'welcome, '.$_SESSION['username'];?></a>
             </div>
  
             
@@ -60,26 +61,16 @@ require "./Forum_globals.php";
             </nav>
             
             <div id="main">
-              <center><h1><?php echo $forum_topic;?></h1></center>
-                <div>
-                  <center>
-                    <?php 
-                      $topics = $mysqli->query("select s.fid,s.title,s.date_created,s.email
-                                                from created_forum_forum c, subtopic_create_subtopic_have s
-                                                where c.fid = s.fid and c.fname='$forum_topic'") or die($mysqli->error);
-                      $subtopic_rows = $topics->fetch_all(MYSQLI_ASSOC);
-                      foreach ($subtopic_rows as $subtopic_row) {
-                        //echo '<pre>',print_r($subtopic_row),'</pre>';
-                        $subtopic_fid = $subtopic_row['fid'];
-                        $subtopic_title = $subtopic_row['title'];
-                        $subtopic_author = $subtopic_row['email'];
-                        $subtopic_date = $subtopic_row['date_created'];
-                        $info = $subtopic_fid . $subtopic_title;
-                        echo "<div id='forum_content'><a href=Comment.php?subtopic=",urlencode($info),">$subtopic_title</a></div><br>";
-                      }
-                    ?>
-                  </center>
-                </div>
+              <?php
+                $msg = $_POST['comment'];
+                $emails = $mysqli->query("select email
+                                          from member m
+                                          UNION
+                                          select email
+                                          from admin") or die($mysqli->error);
+                $email_list = $emails->fetch_all(MYSQLI_ASSOC);
+                
+              ?>
             </div>
             
       

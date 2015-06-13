@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <?php
+session_start();
 $title="Animanga Forum";
 $subtopic_topic = $_GET['subtopic'];
 preg_match('/(\d+)(\D+)/', $subtopic_topic, $match);
 $fid = $match[1];
 $subtopic_title = $match[2];
 $comment_list = array();
+$current_useremail;
+if(isset($_SESSION['useremail'])) {
+  $current_useremail = $_SESSION['useremail'];
+}
 
 require "./Forum_globals.php";
+$current_fid = $fid;
+$current_subtopic = $subtopic_title;
 
 ?>
 
@@ -49,9 +56,14 @@ require "./Forum_globals.php";
     <body>
         <div id="wrapper">
             <div id="banner">   
-                
-                    <a style="color:whitesmoke; font-size:25px" href="#">Login</a>
-                    <a style="color:whitesmoke; font-size:25px" href="#">Register</a>
+                <?php if(isset($_SESSION['useremail'])) {
+                         echo '<a style="color:whitesmoke; font-size:25px" href="Logout.php">Logout</a><br>
+                               <a style="color:greenyellow; font-size:20px" >' . 'Welcome, ' . $_SESSION['username'].'</a>';
+                      } else {
+                         echo '<a style="color:whitesmoke; font-size:25px" href="Login.php">Login</a>
+                               <a style="color:whitesmoke; font-size:25px" href="#">Register</a>';
+                      }
+                ?>
             </div>
  
             
@@ -85,29 +97,25 @@ require "./Forum_globals.php";
                     ?>
                   </center>
                 </div>
-                <div id="comment_box">
-                  <center><h2>Enter a Comment!</h2></center>
-                  <form id="contact-form" action="script.php" method="post">
-                      <ul>
-                        <li>
-                          <label for="name">Full Name:</label>
-                          <input type="text" name="name" id="name" value="" />
-                        </li>
-                        <li>
-                          <label for="email">Email:</label>
-                          <input type="text" name="email" id="email" value="" />
-                        </li>
-                        <li>
-                          <label for="comments">Comment:</label>
-                          <textarea name="comments" id="comments" cols="25" rows="3"></textarea>
-                        </li>
-                        <li>
-                          <input type="submit" value="submit" />
-                          <input type="reset" value="reset" />
-                        </li>
-                      </ul>
-                  </form>
-                </div>
+                <?php
+                  if(isset($_SESSION['useremail'])) {
+                    echo '<div id="comment_box">
+                            <center><h2>Enter a Comment!</h2></center>
+                            <form action="Successful_Comment.php" method="post">
+                             <ul>
+                               <li>
+                                 <label for="comment">Comment:</label>
+                                 <textarea name="comment" id="comment" cols="25" rows="3"></textarea>
+                               </li>
+                               <li>
+                                 <input type="submit" value="submit" />
+                                 <input type="reset" value="reset" />
+                               </li>
+                             </ul>
+                           </form>
+                         </div>';
+                   }
+                 ?>
             </div>
             
       
