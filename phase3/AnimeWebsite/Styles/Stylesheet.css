@@ -158,11 +158,11 @@ footer
     width: 150px;
 }
 
-.searchsubmit 
+.search_genre
 {
 	cursor: pointer;
 	align: left;
-	width:60px;
+	width:100px;
 }
 
 
