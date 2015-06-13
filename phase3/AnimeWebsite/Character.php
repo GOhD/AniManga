@@ -1,10 +1,11 @@
 <?php
 $title = "Character";
 require ("Entities/CharacterEntity.php");
+require 'Model/Credentials.php';
   $output = '';
   //Open connection and Select database.
    
-       $db = mysqli_connect("localhost", "root", "root", "animanga");
+       $db = mysqli_connect($host, $user, $passwd, $database);
        
        if (mysqli_connect_errno()) {
           printf("Connect failed: %s\n", mysqli_connect_error());
@@ -66,7 +67,7 @@ require ("Entities/CharacterEntity.php");
         <div id="wrapper">
             <div id="banner">   
                 
-                    <a style="color:whitesmoke; font-size:25px" href="#">Login</a>
+                <a style="color:whitesmoke; font-size:25px" href="login.php">Login</a>
                     <a style="color:whitesmoke; font-size:25px" href="#">Register</a>
             </div>
  
