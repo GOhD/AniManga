@@ -96,7 +96,12 @@ require ("Model/Credentials.php");
             <input type="text" name = "search" placeholder="search for voice actor">
             <input type ="submit" value = ">>">
             
-        </form>     
+        </form>  
+            
+            <form action ="dummySearchPHP.php"   method ="post">   
+            <input type ="submit" value = "Find Max">
+            
+        </form>  
       <?php
       print("$output");
       ?>  
