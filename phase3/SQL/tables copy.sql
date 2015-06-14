@@ -30,6 +30,7 @@ a_Status  char(100),
 Start_date  date,
 Studio  char(100),
 num_of_episodes  int,
+img varchar(200),
 Primary key (Title, Season),
 Foreign key (Title) REFERENCES Animated_Series(Title)
 )ENGINE=InnoDB;
@@ -52,12 +53,14 @@ CREATE TABLE Voice_Actor
 Birthday  date,
 Gender  char(10),
 Bio  text,
+img varchar(200),
 Primary key (Birthday, Vname))ENGINE=InnoDB;
 
 CREATE TABLE my_Character 
 (Cname    char(100),
  Description   text,
  Rating   int,
+ img varchar(200),
 Primary key (Cname))ENGINE=InnoDB;
 
 CREATE TABLE Users
@@ -162,7 +165,7 @@ insert into Anime values
 ('Pokemon', 'Animation, Adventure, Comedy, Family, Fantasy', 5,
 'Pokémon is a media franchise owned by The Pokémon Company, and created by Satoshi Tajiri in 1995. It is 
 centered on fictional creatures called "Pokémon", which humans capture and train to fight each other for 
-sport.', 18, 'Currently Airing', '2014-11-06', 'OML, Inc.', 20),
+sport.', 18, 'Currently Airing', '2014-11-06', 'OML, Inc.', 20,'http://cdn.myanimelist.net/images/anime/3/2615.jpg'),
 ('Code_Geass', 'Alternate History, Mecha, Drama, Sci-Fi, Super Power', 5,
 'On August 10th of the year 2010 the Holy Empire of Britannia began a campaign of conquest, its sights set on 
 Japan. Operations were completed in one month thanks to Britannias deployment of new mobile humanoid armor 
@@ -173,19 +176,19 @@ working towards independence for Japan.Lelouch, an exiled Imperial Prince of Bri
 finds himself in the heart of the ongoing conflict for the island nation. Through a chance meeting with a 
 mysterious girl named C.C., Lelouch gains his Geass, the power of the king. Now endowed with absolute 
 dominance over any person, Lelouch may finally realize his goal of bringing down Britannia from within!', 1,
-'Finished Airing', '2006-10-06', 'Sunrise', 25),
+'Finished Airing', '2006-10-06', 'Sunrise', 25,'http://cdn.myanimelist.net/images/anime/5/50331.jpg'),
 ('Shokugeki no Souma', 'Comedy, Ecchi, School, Shounen', 4, 
 'Yukihira Soumas dream is to become a full-time chef in his fathers restaurant and surpass his fathers 
 culinary skill. But just as Yukihira graduates from middle schools his father, Yukihira Jouichirou, closes 
 down the restaurant to cook in Europe. Although downtrodden, Soumas fighting spirit is rekindled by a 
 challenge from Jouichirou which is to survive in an elite culinary school where only 10% of the students 
-graduate. Can Souma survive?', 1, 'Currently Airing', '2015-04-04', 'J.C.Staff', 24),
+graduate. Can Souma survive?', 1, 'Currently Airing', '2015-04-04', 'J.C.Staff', 24,'http://cdn.myanimelist.net/images/anime/3/72943.jpg'),
 ('Naruto', 'Animation,Action,Adventure,Comedy,Fantasy,Thriller', 5,
 'Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto 
 Uzumaki, an adolescent ninja who constantly searches for recognition and dreams to become the Hokage, the 
 ninja in his village who is acknowledged as the leader and the strongest of all. The series is based on a 
 one-shot manga by Kishimoto that was published in the August 1997 issue of Akamaru Jump.', 1, 'Finished Airing',
-'2002-03-10', 'Studio Pierrot', 220),
+'2002-03-10', 'Studio Pierrot', 220,'http://cdn.myanimelist.net/images/anime/13/17405.jpg'),
 ('Shingeki no Kyojin', 'Action, Horror, Drama, Fantasy, Tragedy, Psychological, Mature', 5,
 'Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories 
 tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure 
@@ -195,16 +198,16 @@ the city has not seen a giant in over 100 years. Teenage boy Eren and his foster
 something horrific as one of the city walls is damaged by a 60 meter giant causing a breach in the wall. As 
 the smaller giants flood the city, the two kids watch in horror as Erens mother is eaten alive.Unable to save 
 her , Eren vows that he will wipe out every single giant and take revenge for all of mankind.', 1, 'Finished Airing',
-'2014-04-06', 'Wit Studio', 25),
+'2014-04-06', 'Wit Studio', 25,'http://cdn.myanimelist.net/images/anime/10/47347.jpg'),
 ('Jyu oh sei', 'Science Fiction, Romance, Tragedy', 4,
 'Jyu-Oh-Sei is a Japanese manga series written and illustrated by Natsumi Itsuki. An 11-episode anime 
 adaptation was animated by Bones and premiered April 13, 2006 in Japan as part of Fuji TVs Noitamina 
-programming block.', 1, 'Finished Airing', '2006-04-13', 'Bones', 11),
+programming block.', 1, 'Finished Airing', '2006-04-13', 'Bones', 11,'http://cdn.myanimelist.net/images/anime/3/14079.jpg'),
 ('Meitantei Conan', 'Animation,Comedy,Crime,Drama,Mystery,Romance,Thriller', 5,
 'Shinichi Kudo is a high-school student who, by using observation and deduction, is good at solving mysteries. 
 While investigating one, he is caught by the criminals that he was watching and forced to take an 
 experimental drug. Leaving him for dead, the criminals disappear. Instead of killing him, however, the drug 
-turns Shinichi into a little kid.', 16, 'Finished Airing', '2007-02-26', 'TMS Entertainment, Ltd', 25),
+turns Shinichi into a little kid.', 16, 'Finished Airing', '2007-02-26', 'TMS Entertainment, Ltd', 25,'http://cdn.myanimelist.net/images/anime/2/44233.jpg'),
 ('Code_Geass', 'Alternate History, Mecha, Drama, Sci-Fi, Super Power', 5, 
 'On August 10th of the year 2010 the Holy Empire of Britannia began a campaign of conquest, its sights set on 
 Japan. Operations were completed in one month thanks to Britannias deployment of new mobile humanoid armor 
@@ -215,7 +218,7 @@ working towards independence for Japan.Lelouch, an exiled Imperial Prince of Bri
 finds himself in the heart of the ongoing conflict for the island nation. Through a chance meeting with a 
 mysterious girl named C.C., Lelouch gains his Geass, the power of the king. Now endowed with absolute 
 dominance over any person, Lelouch may finally realize his goal of bringing down Britannia from within!', 2,
-'Finished Airing', '2008-04-06', 'Sunrise', 25);
+'Finished Airing', '2008-04-06', 'Sunrise', 25,'http://cdn.myanimelist.net/images/anime/6/24108.jpg');
 
 insert into Manga values
 ('Tokyo Ghoul', 'Action, Drama, Horror, Fantasy, Psychological, Tragedy, Supernatural', 5,
@@ -276,21 +279,21 @@ details provide the backdrop for this appealing romance.', 'Kaoru Mori', 10, '20
 insert into Voice_Actor values
 ('Ikue Ohtani', '1965-08-18', 'Female', 
 'Ikue Ohtani was born on August 18, 1965 in Tokyo, Japan. She is an actress, known for Pokémon (1998), 
-Poketto Monsutâ (1997) and Gekijô-ban poketto monsutâ - Myûtsû no gyakushû (1998).'),
+Poketto Monsutâ (1997) and Gekijô-ban poketto monsutâ - Myûtsû no gyakushû (1998).','http://cdn.myanimelist.net/images/voiceactors/3/14623.jpg'),
 ('Veronica Taylor', '1978-04-09', 'Female', 
 'Veronica Taylor was born on April 9, 1978 in New York City, New York, USA. She is an actress, known 
 for Pokémon (1998), Gekijô-ban poketto monsutâ - Myûtsû no gyakushû (1998) and Teenage Mutant Ninja 
-Turtles (2003). She is married to Dan Chruscinski.'),
+Turtles (2003). She is married to Dan Chruscinski.','http://cdn.myanimelist.net/images/voiceactors/2/35511.jpg'),
 ('Kazuhiko Inoue', '1954-03-26', 'Male',
 'Kazuhiko Inoue was born on March 26, 1954 in Yokohama, Japan. He is an actor, known for Naruto: 
-Shippûden (2007), Naruto (2002) and Hyakujû-ô Goraion (1981).'),
+Shippûden (2007), Naruto (2002) and Hyakujû-ô Goraion (1981).','http://cdn.myanimelist.net/images/voiceactors/2/8315.jpg'),
 ('Junko Takeuchi', '1972-04-05', 'Female', 
 'Junko Takeuchi was born on April 5, 1972 in Saitama, Japan. She is an actress, known for Naruto: 
-Shippûden (2007), Naruto (2002) and Naruto SD: Rock Lee no Seishun Full-Power Ninden (2012).'),
+Shippûden (2007), Naruto (2002) and Naruto SD: Rock Lee no Seishun Full-Power Ninden (2012).','http://cdn.myanimelist.net/images/voiceactors/1/8763.jpg'),
 ('Minami Takayama', '1964-05-05', 'Female',
 'Minami Takayama was born on May 5, 1964 in Tokyo, Japan as Arai Izumi. She is an actress and 
 composer, known for Meitantei Conan (1996), Majo no takkyûbin (1989) and Ranma ½: Nettô-hen (1989). 
-She was previously married to Gôshô Aoyama.'),
+She was previously married to Gôshô Aoyama.','http://cdn.myanimelist.net/images/voiceactors/1/6711.jpg'),
 ('Jun Fukuyama', '1978-11-26', 'Male',
 'Jun Fukuyama (born November 26, 1978) is a Japanese voice actor and singer. He was previously 
 represented by Aoni Production and Production Baobab, and is now represented by Axl-One. He is from 
@@ -298,14 +301,14 @@ Fukuyama, Hiroshima but grew up in Takatsuki, Osaka. He was on the cover of Octo
 of the Japanese magazine Voice Newtype. He is a Japanese voice actor who won the 1st Seiyu Awards 
 for best voice actor for his role as Lelouch Lamperouge at Code_Geass. He is sometimes confused 
 with another fellow Japanese voice actor by the name of Jun Fukushima, as their names are only 
-different by one Kanji letter in their name spellings.');
+different by one Kanji letter in their name spellings.','http://cdn.myanimelist.net/images/voiceactors/3/8326.jpg');
 
 insert into my_Character values
 ('Pikachu', 'Pikachu, easily the most famous and recognizable of all the Pokemon, is the companion and 
 best friend of the hero of the TV show, Ash Ketchum. Pikachu is stubborn, yet kind hearted and very 
 powerful (much more powerful than the average Pikachu). It is loyal to Ash no matter what, and Ash 
 feels the same for Pikachu, as each have laid their lives on the line for the other many times 
-throughout the series and the movies.', 5),
+throughout the series and the movies.', 5,'http://cdn.myanimelist.net/images/characters/10/81278.jpg'),
 ('Ash Ketchum', 'Ash Ketchum is the hero of the Pokemon television series and movies. He is 10 years 
 old (though the show has been on the air over 10 years now), and his best friend is his first 
 Pokemon, Pikachu. He hopes to become a Pokemon master by travelling all throughout the world, 
@@ -321,33 +324,33 @@ include Gary and Paul, both of whom try to constantly dampen his spirits. Ash is
 always fighting for the greater good, and always wishes for the happiness of Pokemon over his own. 
 He has released several of his Pokemon, particularly Charizard, Butterfree, and Pidgeot, so they 
 could be happier. He was even prepared to let Pikachu go, but Pikachu decided to stay with Ash in 
-the end, solidifying their friendship.', 4),
+the end, solidifying their friendship.', 4,'http://cdn.myanimelist.net/images/characters/9/73322.jpg'),
 ('Lelouch vi Britannia', 'Lelouch vi Britannia is the protagonist and antihero of Code_Geass: 
 Lelouch of the Rebellion and Code_Geass: Lelouch of the Rebellion R2, 17 years old (18 at R2). After 
 he was exiled he used the alias, Lelouch Lamperouge He is the Eleventh Prince of the Holy Britannian 
 Empire and the son of the 98th Emperor of Britannia, Charles zi Britannia. He is the leader of the 
 Black Knights which makes him the real identity of Zero. He is voiced by Jun Fukuyama, while his 
 child self is voiced by Sayaka Ohara. His English dub voice is provided by Johnny Yong Bosch with 
-Michelle Ruff doing Lelouchs child voice.', 5),
+Michelle Ruff doing Lelouchs child voice.', 5,'http://cdn.myanimelist.net/images/characters/4/277146.jpg'),
 ('Naruto Uzumaki', 'Naruto Uzumaki is a shinobi of Konohagakure. He became the jinchūriki of the 
 Nine-Tails on the day of his birth, a fate that caused him to be ostracised and neglected by most 
 of Konoha throughout his childhood. After joining Team Kakashi, Naruto worked hard to gain the 
 villages respect and acknowledgement with the eventual dream of becoming Hokage. In the following 
 years, he became a capable ninja regarded as a hero, both by the villagers and the shinobi world at 
 large. He soon proved to be the main factor in winning the Fourth Shinobi World War, leading him to 
-achieve his dream and become the Seventh Hokage', 3),
+achieve his dream and become the Seventh Hokage', 3,'http://cdn.myanimelist.net/images/characters/2/284121.jpg'),
 ('Shinichi Kudo', 'A high school detective, he is forced to ingest the lethal poison APTX 4869 after 
 his encounter with Gin and Vodka. Due to a rare side effect, the poison shrinks him into a child and 
 he adopts the pseudonym Conan Edogawa to hide from those who poisoned him. He moves in with his 
 childhood friend Rachel Moore and her father Richard Moore as he awaits the day he can take down 
-Gin and the syndicate he belongs to, the Black Organization.', 1),
+Gin and the syndicate he belongs to, the Black Organization.', 1,'http://cdn.myanimelist.net/images/characters/10/146275.jpg'),
 ('Kakashi Hatake', 'Kakashi Hatake is a shinobi of Konohagakures Hatake clan. After receiving a 
 Sharingan from his team-mate, Obito Uchiha, Kakashi gained recognition as Copy Ninja Kakashi and 
 Kakashi of the Sharingan His prodigious talent, skill, and Sharingan prowess have made him one of 
 the villages most capable ninja, and as such, both highly renowned and feared throughout the ninja 
 world. Later appointed the leader of Team 7, Kakashi used his years of experience to train his 
 students as skilled shinobi in their own rights. In the aftermath of the Fourth Shinobi World War, 
-Kakashi takes up office as the Sixth Hokage.', 2);
+Kakashi takes up office as the Sixth Hokage.', 2,'http://cdn.myanimelist.net/images/characters/7/284129.jpg');
 
 insert into Admin values
 ('fx7384@gmail.com', 'Francis Xavier', 'EternalBlaze', 'jpopftw'),

@@ -25,11 +25,12 @@ require 'Model/Credentials.php';
                 $cname = $row[0];
                 $description = $row[1];
                 $rating = $row[2];
-                $character = new CharacterEntity($cname, $description, $rating);
+                $img=$row[3];
+                $character = new CharacterEntity($cname, $description, $rating,$img);
                 
                 $output .="<table class = 'mangaTable'> 
-                            <tr>
-                            <th rowspan='6' width = '150px' >                                                    
+                              <tr>
+                            <th rowspan='6' width = '150px' ><img  src ='$character->img' /></th>                            
                         </tr>
                         <tr>
                             <th>Name: </th>
@@ -68,11 +69,9 @@ require 'Model/Credentials.php';
             <div id="banner">   
                 
                 <a style="color:whitesmoke; font-size:25px" href="Login.php">Login</a>
-<<<<<<< Updated upstream
+
                 <a style="color:whitesmoke; font-size:25px" href="Register.php">Register</a>
-=======
-                    <a style="color:whitesmoke; font-size:25px" href="#">Register</a>
->>>>>>> Stashed changes
+
             </div>
  
             

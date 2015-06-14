@@ -17,11 +17,13 @@ class VoiceActorEntity {
     public $gender;
     public $biography;
     public $vname;
+    public $img;
     
-    function __construct($birthday,$gender,$biography,$vname){
+    function __construct($birthday,$gender,$biography,$vname,$img){
         $this->birthday = $birthday;
         $this->gender = $gender;
         $this->biography = $biography;
         $this->vname = $vname;
+        $this->img=$img;
     }
 }
