@@ -68,7 +68,11 @@ require 'Model/Credentials.php';
             <div id="banner">   
                 
                 <a style="color:whitesmoke; font-size:25px" href="Login.php">Login</a>
+<<<<<<< Updated upstream
                 <a style="color:whitesmoke; font-size:25px" href="Register.php">Register</a>
+=======
+                    <a style="color:whitesmoke; font-size:25px" href="#">Register</a>
+>>>>>>> Stashed changes
             </div>
  
             

@@ -12,11 +12,14 @@ if(isset($_POST['password'])&&isset($_POST['email_login'])){
     }else{
         $database_mem = $dbhandle ->query("SELECT * FROM Member where '$email_login' =Email")or die(mysqli_error('ayaya'));
         if(mysqli_num_rows($database_mem)==1){
+            
             $row = mysqli_fetch_array($database_mem);
-            if($email_login==$row[0]) {            
+            
+            if($email_login==$row[0]) { 
+                echo 'ayaya finally';
                 if($row[3] == $password){
                     session_start();
-                    $_SESSION['username']=$row[1];
+                    $_SESSION['username']=$row[2];
                     $_SESSION['useremail']=$email_login;
                     header('Location: member_acc.php');
                     echo 'congrats you got member password match';
@@ -29,6 +32,9 @@ if(isset($_POST['password'])&&isset($_POST['email_login'])){
             if(mysqli_num_rows($database_admin)==1){
                 $row = mysqli_fetch_array($database_admin);
                 if($row[3] == $password){
+                    session_start();
+                    $_SESSION['username']=$row[2];
+                    $_SESSION['useremail']=$email_login;
                     header('Location: admin_acc.php');
                     echo 'congrats you got admin password match';
                 }else{
@@ -84,7 +90,7 @@ if(isset($_POST['password'])&&isset($_POST['email_login'])){
             </form>
         
         
-        
+        <br><br><br><br>
 
         
         

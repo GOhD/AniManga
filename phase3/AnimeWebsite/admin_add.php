@@ -14,7 +14,43 @@ $result = $dbhandle->query("SELECT * FROM Anime") or die($dbhandle->error);
 $count = $dbhandle->query("SELECT count(*) from Anime") or die($dbhandle->error);
 $newrow = mysqli_fetch_array($count);
 
-
+if(isset($_POST['add_title']) && isset($_POST['add_season'])){
+    $add_title = $_POST['add_title'];
+    $add_season = $_POST['add_season'];
+    $add_genre = $_POST['add_genre'];
+    $add_rating =$_POST['add_rating'];
+    $add_a_status =$_POST['add_a_status'];
+    $add_start_date =$_POST['add_start_date'];
+    $add_studio =$_POST['add_studio'];
+    $add_num_of_episodes =$_POST['add_num_of_episodes'];
+    $add_description =$_POST['add_description'];
+    
+    if(!empty($add_title)&& !empty($add_season)){
+        if(is_numeric($add_season)&&  is_string($add_title)){
+            mysqli_query($dbhandle,"INSERT INTO Animated_Series (Title) VALUES ('$add_title')") or die($dbhandle->error);
+            if(!$add_start_date){
+                $sql="INSERT INTO Anime (Title,Genre, Rating, Description, Season, a_Status, Start_date, Studio, num_of_episodes,link) 
+                        VALUES ('$add_title','$add_genre','$add_rating','$add_description', '$add_season', '$add_a_status', null, '$add_studio', '$add_num_of_episodes',null)";
+                mysqli_query($dbhandle,$sql)or die($dbhandle->error);
+             
+                header('Location: admin_acc.php'); 
+            }
+            
+            
+            $sql="INSERT INTO Anime (Title,Genre, Rating, Description, Season, a_Status, Start_date, Studio, num_of_episodes,link) 
+                        VALUES ('$add_title','$add_genre','$add_rating','$add_description', '$add_season', '$add_a_status', '$add_start_date', '$add_studio', '$add_num_of_episodes',null)";
+            mysqli_query($dbhandle,$sql)or die($dbhandle->error);
+             
+           header('Location: admin_acc.php'); 
+           
+        }else{
+            $output .= "title must be string and season must be an integer value";
+        }
+        
+    }else{
+        $output .= "title or season cannot be blank";
+    }
+}
 
 
 if ($result->num_rows){
@@ -131,11 +167,45 @@ if ($result->num_rows){
         
         <br><br>
         
-        <a align="center" style="color:lightcyan; font-size:24px">Admin Main</a><br><br>
+        <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_acc.php">Admin Main</a><br><br>
         <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_del.php">Delete Anime</a><br><br>
-        <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_add.php">Add Anime</a><br><br>
+        <a align="center" style="color:lightcyan; font-size:24px" >Add Anime</a><br><br>
         <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_upd.php">Update Anime</a><br><br>
         
+        
+        <form action = "admin_add.php" method = "POST" align="center">
+            <a style="color:lightgoldenrodyellow; font-size:23px" >Add anime to Team PikaPika database</a><br><br><br>
+            <a style="color:lightgoldenrodyellow; font-size:18px">title:</a><br>  
+            <input type ="text" name ="add_title"><br><br>
+            
+            <a style="color:lightgoldenrodyellow; font-size:18px">genre:</a><br>  
+            <input type ="text" name ="add_genre"><br><br>
+            
+            <a style="color:lightgoldenrodyellow; font-size:18px">rating:</a><br>  
+            <input type ="text" name ="add_rating"><br><br>
+            
+            <a style="color:lightgoldenrodyellow; font-size:18px">season number:</a><br>
+            <input type ="text" name ="add_season"><br><br>
+            
+            <a style="color:lightgoldenrodyellow; font-size:18px">status:</a><br>  
+            <input type ="text" name ="add_a_status"><br><br>
+            
+            <a style="color:lightgoldenrodyellow; font-size:18px">start date: (yyyy-mm-dd)</a><br>  
+            <input type ="text" name ="add_start_date"><br><br>
+            
+            <a style="color:lightgoldenrodyellow; font-size:18px">studio:</a><br>  
+            <input type ="text" name ="add_studio"><br><br>
+            
+            <a style="color:lightgoldenrodyellow; font-size:18px">number of episodes:</a><br>  
+            <input type ="text" name ="add_num_of_episodes"><br><br>
+            
+            <a style="color:lightgoldenrodyellow; font-size:18px">description:</a><br>  
+            <textarea name ="add_description" row="10" cols="60" style="width:400px; height:200px;"></textarea><br><br>
+            
+            <input type = "submit" value ="add">
+            </form>
+        
+        <br><br><br><hr>
         
            <?php
             print("$output");
