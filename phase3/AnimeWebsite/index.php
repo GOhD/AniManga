@@ -56,7 +56,7 @@ $string3;
                     
                     while($row = mysqli_fetch_array($resultCharacter,MYSQLI_BOTH)) { 
                         $stringCharacter ='<HTML>
-                                <h1>Manga Suggestion</h1>
+                                <h1>Character Suggestion</h1>
                              </HTML>';
                        $temp=$row["img"];
                     

@@ -17,10 +17,12 @@ require 'Model/Credentials.php';
                 //echo gettype($term);
             //'Invalid input type,please enter in a string!';
             //}
+                
             $result = $db->query("SELECT * FROM my_character where cname  LIKE '%$term%'") or die($db->error);
             $count = $result->num_rows;
             if ($result->num_rows){
             //echo 'yay, there are '.$count.' results that meet ur input!';
+           
             while($row = mysqli_fetch_array($result)){
                 $cname = $row[0];
                 $description = $row[1];
@@ -46,10 +48,17 @@ require 'Model/Credentials.php';
                             <td colspan='2' >$character->description</td>
                         </tr> 
                         
+                        <tr><td colspan='2' >
+                        <form action ='liker.php?type=$character->cname'   method ='post'>
+                        <input type ='submit' value = 'Like!!!'>
+                                                </form> 
+                        </td>
+                         </tr>
+        
                         </table>";
                    
             }
-            }
+        }
             else{
                 $output= 'There is no result that satisfy your input!';
             }   
