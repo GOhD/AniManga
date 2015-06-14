@@ -35,16 +35,16 @@ require ("Model/Credentials.php");
                 $author= $row[4];
                 $volume = $row[5];
                 $published_date = $row[6];
-                $img = $row[7];
+                $link = $row[7];
                 
                 // echo $img;
             
-                $manga = new MangaEntity($title, $genre, $rating, $description, $author, $volume, $published_date,$img);
+                $manga = new MangaEntity($title, $genre, $rating, $description, $author, $volume, $published_date,$link);
                
                 $output .= 
                         "<table class = 'mangaTable'>
                         <tr>
-                            <th rowspan='6' width = '150px' ><img  src ='$manga->img' /></th>
+                            <th rowspan='6' width = '150px' ><img  src ='$manga->link' /></th>
                             <th width = '75px' >Title: </th>
                             <td> $manga->title</td>
                         </tr>

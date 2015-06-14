@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <?php
+session_start();
 $title="Animanga Forum";
 $forum_topic = $_GET['topic'];
 $topic_list = array();
 
 require "./Forum_globals.php";
+
+if(isset($_SESSION['useremail'])) {
+  $current_useremail = $_SESSION['useremail'];
+}
 
 ?>
 
@@ -42,9 +47,14 @@ require "./Forum_globals.php";
     <body>
         <div id="wrapper">
             <div id="banner">   
-                
-                    <a style="color:whitesmoke; font-size:25px" href="Login.php">Login</a>
-                    <a style="color:whitesmoke; font-size:25px" href="Register.php">Register</a>
+               <?php if(isset($_SESSION['useremail'])) {
+                        echo '<a style="color:whitesmoke; font-size:25px" href="Logout.php">Logout</a><br>
+                              <a style="color:greenyellow; font-size:20px" >' . 'Welcome, ' . $_SESSION['username'].'</a>';
+                     } else {
+                        echo '<a style="color:whitesmoke; font-size:25px" href="Login.php">Login</a>
+                              <a style="color:whitesmoke; font-size:25px" href="Register.php">Register</a>';
+                     }
+               ?>
             </div>
  
             

@@ -1,8 +1,8 @@
 <?php
 session_start();
-unset($_SESSION['username']);
-unset($_SESSION['useremail']);
-
+//unset($_SESSION['username']);
+//unset($_SESSION['useremail']);
+session_destroy();
 ?>
 
 <!DOCTYPE html>

@@ -20,10 +20,10 @@ class MangaEntity {
     public $author;
     public $volume;
     public $published_date;
-    public $img;
+    public $link; // link reference as the img link url
     
     
-    function __construct($title,$genre,$rating,$description,$author,$volume,$published_date,$img){
+    function __construct($title,$genre,$rating,$description,$author,$volume,$published_date,$link){
         $this->title = $title;
         $this->genre = $genre;
         $this->rating = $rating;
@@ -31,7 +31,7 @@ class MangaEntity {
         $this->author = $author;
         $this->volume = $volume;
         $this->published_date = $published_date;
-        $this->img = $img;
+        $this->link = $link;
         
     }
     

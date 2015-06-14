@@ -26,11 +26,12 @@ require ("Model/Credentials.php");
                 $birthday = $row[1];
                 $gender = $row[2];
                 $biography = $row[3];
-                $voiceActor = new VoiceActorEntity($birthday, $gender, $biography, $vname);
+                $img=$row[4];
+                $voiceActor = new VoiceActorEntity($birthday, $gender, $biography, $vname,$img);
                 
                 $output .="<table class = 'mangaTable'> 
-                            <tr>
-                            <th rowspan='6' width = '150px' >                                                    
+                             <tr>
+                            <th rowspan='6' width = '150px' ><img  src ='$voiceActor->img' /></th>                            
                         </tr>
                         <tr>
                             <th>Name: </th>
@@ -96,7 +97,13 @@ require ("Model/Credentials.php");
             <input type="text" name = "search" placeholder="search for voice actor">
             <input type ="submit" value = ">>">
             
-        </form>     
+        </form>  
+            
+            <form action ="dummySearchPHP.php"   method ="post">
+                
+            <input type ="submit" value = "Find Max">
+            
+        </form>  
       <?php
       print("$output");
       ?>  

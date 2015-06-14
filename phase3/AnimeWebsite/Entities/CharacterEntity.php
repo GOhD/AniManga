@@ -16,11 +16,12 @@ class CharacterEntity {
     public $cname;
     public $description;
     public $rating;
+    public $link;
     
-    
-    function __construct($cname,$description,$rating){
+    function __construct($cname,$description,$rating,$link){
         $this->cname = $cname;
         $this->description = $description;
         $this->rating = $rating;
+        $this->link=$link;
     }
 }

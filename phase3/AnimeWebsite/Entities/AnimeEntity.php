@@ -16,8 +16,9 @@ class AnimeEntity{
     public $start_date;
     public $studio;
     public $num_of_episode;
+    public $link;
     
-    function __construct($title,$genre,$rating,$description,$season,$status,$start_date,$studio,$num_of_episode){
+    function __construct($title,$genre,$rating,$description,$season,$status,$start_date,$studio,$num_of_episode,$link){
         $this->title = $title;
         $this->genre = $genre;
         $this->rating = $rating;
@@ -27,6 +28,7 @@ class AnimeEntity{
         $this ->start_date = $start_date;
         $this ->studio = $studio;
         $this ->num_of_episode = $num_of_episode;
+        $this ->link = $link;
     }
 }
 

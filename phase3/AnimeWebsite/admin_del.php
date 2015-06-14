@@ -16,6 +16,26 @@ $newrow = mysqli_fetch_array($count);
 
 
 
+//delete anime fn
+if(isset($_POST['del_title']) && isset($_POST['del_season'])){
+    $del_title = $_POST['del_title'];
+    $del_season = $_POST['del_season'];
+                
+    if(!empty($del_title)&& !empty($del_season)){
+        $database_anidel = $dbhandle ->query("SELECT * FROM Anime where '$del_title' =Title and '$del_season'= Season")or die($dbhandle->connect_error);
+        if(mysqli_num_rows($database_anidel)>0){
+            echo "$del_title <br> $del_season<br>";
+            $database_anidel = $dbhandle ->query("DELETE FROM Anime where ('$del_title' =Title and '$del_season'= Season)")or die($dbhandle->connect_error);
+            header('Location: admin_acc.php');
+            //$output.= "$del_title season $del_season has been deleted from Team PikaPika anime database yo!<br> Refresh to see your new list~";
+        }else{
+            $output.= "$del_title is not in Team PikaPika anime database yo!";
+        }
+    }else{
+        $output .= "please fill in both anime's title and season to be deleted";
+    }
+}
+
 
 if ($result->num_rows){
 
@@ -131,11 +151,21 @@ if ($result->num_rows){
         
         <br><br>
         
-        <a align="center" style="color:lightcyan; font-size:24px">Admin Main</a><br><br>
-        <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_del.php">Delete Anime</a><br><br>
+        <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_acc.php">Admin Main</a><br><br>
+        <a align="center" style="color:lightcyan; font-size:24px" >Delete Anime</a><br><br>
         <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_add.php">Add Anime</a><br><br>
         <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_upd.php">Update Anime</a><br><br>
         
+        <form action = "admin_del.php" method = "POST" align="center">
+            <a style="color:lightgoldenrodyellow; font-size:23px" >Delete anime from Team PikaPika database</a><br><br><br>
+            <a style="color:lightgoldenrodyellow; font-size:18px">title:</a><br>  
+            <input type ="text" name ="del_title"><br><br>
+            <a style="color:lightgoldenrodyellow; font-size:18px">season number:</a><br>
+            <input type ="text" name ="del_season"><br><br>
+            <input type = "submit" value ="delete">
+            </form>
+        
+        <br><br><br><hr>
         
            <?php
             print("$output");

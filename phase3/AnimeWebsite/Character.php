@@ -17,19 +17,22 @@ require 'Model/Credentials.php';
                 //echo gettype($term);
             //'Invalid input type,please enter in a string!';
             //}
+                
             $result = $db->query("SELECT * FROM my_character where cname  LIKE '%$term%'") or die($db->error);
             $count = $result->num_rows;
             if ($result->num_rows){
             //echo 'yay, there are '.$count.' results that meet ur input!';
+           
             while($row = mysqli_fetch_array($result)){
                 $cname = $row[0];
                 $description = $row[1];
                 $rating = $row[2];
-                $character = new CharacterEntity($cname, $description, $rating);
+                $img=$row[3];
+                $character = new CharacterEntity($cname, $description, $rating,$img);
                 
                 $output .="<table class = 'mangaTable'> 
-                            <tr>
-                            <th rowspan='6' width = '150px' >                                                    
+                              <tr>
+                            <th rowspan='6' width = '150px' ><img  src ='$character->link' /></th>                            
                         </tr>
                         <tr>
                             <th>Name: </th>
@@ -45,10 +48,17 @@ require 'Model/Credentials.php';
                             <td colspan='2' >$character->description</td>
                         </tr> 
                         
+                        <tr><td colspan='2' >
+                        <form action ='liker.php?type=$character->cname'   method ='post'>
+                        <input type ='submit' value = 'Like!!!'>
+                                                </form> 
+                        </td>
+                         </tr>
+        
                         </table>";
                    
             }
-            }
+        }
             else{
                 $output= 'There is no result that satisfy your input!';
             }   
@@ -68,7 +78,9 @@ require 'Model/Credentials.php';
             <div id="banner">   
                 
                 <a style="color:whitesmoke; font-size:25px" href="Login.php">Login</a>
+
                 <a style="color:whitesmoke; font-size:25px" href="Register.php">Register</a>
+
             </div>
  
             
