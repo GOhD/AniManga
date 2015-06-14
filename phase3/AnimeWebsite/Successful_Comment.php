@@ -3,8 +3,14 @@
 session_start();
 $title="Animanga Forum";
 $current_useremail = $_SESSION['useremail'];
+$subtopic_topic = $_POST['info'];
+preg_match('/(\d+)(\D+)/', $subtopic_topic, $match);
+$fid = $match[1];
+$subtopic_title = $match[2];
 
 require "./Forum_globals.php";
+
+date_default_timezone_set('America/Vancouver');
 
 ?>
 
@@ -33,10 +39,7 @@ require "./Forum_globals.php";
                border-color:#0000FF;
                border-width:5px;
                padding:5px;
-          }
-
-          
-               
+          } 
 
         </style>
     </head>
@@ -63,17 +66,20 @@ require "./Forum_globals.php";
             <div id="main">
               <?php
                 $msg = $_POST['comment'];
-                $emails = $mysqli->query("select email
-                                          from member m
-                                          UNION
-                                          select email
-                                          from admin") or die($mysqli->error);
-                $email_list = $emails->fetch_all(MYSQLI_ASSOC);
-                
+                $current_date = getdate();
+                $year = $current_date['year'];
+                $month = $current_date['mon'];
+                $day = $current_date['mday'];
+                $date = $year . '-' . $month . '-' . $day;
+                $insert_msg = $mysqli->query("insert into comment_write_contain 
+                                              values (".$fid.",'".$subtopic_title."','".$msg."','".$date."','".$current_useremail."')");
+                if($insert_msg){
+                  echo '<center><h1>Comment Success!</h1></center>';
+                }else{
+                  die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+                }
               ?>
             </div>
-            
-      
             
             <footer>
                 <p style="color:whitesmoke;">Created by team Pikapika</p>

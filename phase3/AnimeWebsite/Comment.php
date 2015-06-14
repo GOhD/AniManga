@@ -11,10 +11,10 @@ $current_useremail;
 if(isset($_SESSION['useremail'])) {
   $current_useremail = $_SESSION['useremail'];
 }
+$info = $fid . $subtopic_title;
 
 require "./Forum_globals.php";
-$current_fid = $fid;
-$current_subtopic = $subtopic_title;
+
 
 ?>
 
@@ -102,6 +102,7 @@ $current_subtopic = $subtopic_title;
                     echo '<div id="comment_box">
                             <center><h2>Enter a Comment!</h2></center>
                             <form action="Successful_Comment.php" method="post">
+                             <input type="hidden" name="info" value="'.$info.'" />
                              <ul>
                                <li>
                                  <label for="comment">Comment:</label>
