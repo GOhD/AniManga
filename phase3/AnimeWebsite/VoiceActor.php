@@ -26,12 +26,12 @@ require ("Model/Credentials.php");
                 $birthday = $row[1];
                 $gender = $row[2];
                 $biography = $row[3];
-                $img=$row[4];
-                $voiceActor = new VoiceActorEntity($birthday, $gender, $biography, $vname,$img);
+                $link=$row[4];
+                $voiceActor = new VoiceActorEntity($birthday, $gender, $biography, $vname,$link);
                 
                 $output .="<table class = 'mangaTable'> 
                              <tr>
-                            <th rowspan='6' width = '150px' ><img  src ='$voiceActor->img' /></th>                            
+                            <th rowspan='6' width = '150px' ><img  src ='$voiceActor->link' /></th>                            
                         </tr>
                         <tr>
                             <th>Name: </th>
