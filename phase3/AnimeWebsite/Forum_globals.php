@@ -3,8 +3,6 @@
 include "./Model/Credentials.php";
 
 $content = array();
-$current_fid;
-$current_subtopic;
 
 $mysqli = new mysqli($host, $user, $passwd, $database); 
 if($mysqli->connect_errno) {
