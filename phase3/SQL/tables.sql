@@ -176,11 +176,9 @@ working towards independence for Japan.Lelouch, an exiled Imperial Prince of Bri
 finds himself in the heart of the ongoing conflict for the island nation. Through a chance meeting with a 
 mysterious girl named C.C., Lelouch gains his Geass, the power of the king. Now endowed with absolute 
 dominance over any person, Lelouch may finally realize his goal of bringing down Britannia from within!', 1,
-<<<<<<< HEAD
-'Finished Airing', '2006-10-6', 'Sunrise', 25, null),
-=======
+
 'Finished Airing', '2006-10-6', 'Sunrise', 25, 'http://cdn.myanimelist.net/images/anime/5/50331.jpg'),
->>>>>>> 804f73229927ab1f208c8c1129abdf2a3289afac
+
 ('Shokugeki no Souma', 'Comedy, Ecchi, School, Shounen', 4, 
 'Yukihira Soumas dream is to become a full-time chef in his fathers restaurant and surpass his fathers 
 culinary skill. But just as Yukihira graduates from middle schools his father, Yukihira Jouichirou, closes 
