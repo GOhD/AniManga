@@ -20,10 +20,15 @@ class VoiceActorEntity {
     public $link;
     
     function __construct($birthday,$gender,$biography,$vname,$link){
+
+    
+
         $this->birthday = $birthday;
         $this->gender = $gender;
         $this->biography = $biography;
         $this->vname = $vname;
+
         $this->link=$link;
+
     }
 }

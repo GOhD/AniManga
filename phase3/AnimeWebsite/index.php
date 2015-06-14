@@ -13,11 +13,14 @@ $dbhandle = mysqli_connect($host, $user, $passwd,$database)
 
 
 //query to check for a random Anime recommendation
+
 $resultAnime = mysqli_query($dbhandle,"SELECT title,genre,rating,description,season,a_status,start_date,studio,num_of_episodes,link from anime ORDER BY RAND() LIMIT 1");
 //query to check for a random Manga recommendation
 $resultManga = mysqli_query($dbhandle,"SELECT title,genre,description,rating,author,volume,published_date,link from manga ORDER BY RAND() LIMIT 1");
 //query to check for a random Character recommendation
 $resultCharacter = mysqli_query($dbhandle,"SELECT cname,description,rating,link from my_character ORDER BY RAND() LIMIT 1");
+
+
 
 $string1;
 $string2;
@@ -31,7 +34,9 @@ $string3;
                                 <h1>Anime Suggestion</h1>
                              </HTML>';
                         
+
                        $temp=$row["link"];
+
                     
                     $string1= "<img src=$temp>" . "<br><font color='green'>Title</font>: " . $row["title"]. "<br><font color='green'>Genre</font>: " . $row["genre"]. "<br><font color='green'>Rating</font>: " .
                             $row["rating"]. "<br><font color='green'>Season</font>: " . $row["season"] . "<br><font color='green'>Status</font>: " . $row["a_status"] 
@@ -45,7 +50,10 @@ $string3;
                         $stringManga='<HTML>
                                 <h1>Manga Suggestion</h1>
                              </HTML>';
+
                        $temp=$row["link"];
+
+
                     
                     $string2= "<img src=$temp>" . "<br><font color='green'>Title</font>: " . $row["title"]. "<br><font color='green'>Genre</font>: " . 
                             $row["genre"]. "<br><font color='green'>Rating</font>: " . $row["rating"]. "<br><font color='green'>Author</font>: " . $row["author"].
@@ -58,7 +66,9 @@ $string3;
                         $stringCharacter ='<HTML>
                                 <h1>Character Suggestion</h1>
                              </HTML>';
+
                        $temp=$row["link"];
+
                     
                     $string3="<img src=$temp>" . "<br><font color='green'>Name</font>: " . $row["cname"]. "<br><font color='green'>rating</font>: " . $row["rating"].
                             "<br><font color='green'>Description</font>: " . $row["description"]. "<br><br><br>";      }

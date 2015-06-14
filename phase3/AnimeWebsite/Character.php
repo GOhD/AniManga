@@ -32,7 +32,9 @@ require 'Model/Credentials.php';
                 
                 $output .="<table class = 'mangaTable'> 
                               <tr>
+
                             <th rowspan='6' width = '150px' ><img  src ='$character->link' /></th>                            
+
                         </tr>
                         <tr>
                             <th>Name: </th>
