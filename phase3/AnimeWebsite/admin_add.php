@@ -28,7 +28,9 @@ if(isset($_POST['add_title']) && isset($_POST['add_season'])){
     
     if(!empty($add_title)&& !empty($add_season)){
         if(is_numeric($add_season)&&  is_string($add_title)){
-            mysqli_query($dbhandle,"INSERT INTO Animated_Series (Title) VALUES ('$add_title')") or die($dbhandle->error);
+            $ala = $dbhandle ->query("select * from Animated_Series where '$add_title'=Title")or die($dbhandle->error);
+            if(mysqli_num_rows($ala)==0)
+                mysqli_query($dbhandle,"INSERT INTO Animated_Series (Title) VALUES ('$add_title')") or die($dbhandle->error);
             if(!$add_start_date){
                 $sql="INSERT INTO Anime (Title,Genre, Rating, Description, Season, a_Status, Start_date, Studio, num_of_episodes,link) 
                         VALUES ('$add_title','$add_genre','$add_rating','$add_description', '$add_season', '$add_a_status', null, '$add_studio', '$add_num_of_episodes','$add_link')";
