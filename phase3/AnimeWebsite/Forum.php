@@ -98,7 +98,11 @@ if(isset($_POST['selected'])) {
                   <center>
                     <?php 
                       foreach ($content as $subtopic) {
-                        echo "<div id='forum_content'><a href=Subtopic.php?topic=",urlencode($subtopic),">$subtopic</a></div><br>";
+                        $forum_name = $subtopic['fName'];
+                        $forum_creator = $subtopic['Admin_name'];
+                        $date = $subtopic['Date_created'];
+                        echo "<div id='forum_content'><a href=Subtopic.php?topic=",urlencode($forum_name),">$forum_name</a><br>
+                              <p>Created by - ".$forum_creator." on ".$date."</p></div>";
                       }
                     ?>
                   </center>

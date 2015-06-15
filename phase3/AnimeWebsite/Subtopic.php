@@ -85,7 +85,8 @@ if(isset($_SESSION['useremail'])) {
                         $subtopic_author = $subtopic_row['email'];
                         $subtopic_date = $subtopic_row['date_created'];
                         $info = $subtopic_fid . $subtopic_title;
-                        echo "<div id='forum_content'><a href=Comment.php?subtopic=",urlencode($info),">$subtopic_title</a></div><br>";
+                        echo "<div id='forum_content'><a href=Comment.php?subtopic=",urlencode($info),">$subtopic_title</a><br>
+                              <p>Created by - ".$subtopic_author." on ".$subtopic_date."</p></div>";
                       }
                     ?>
                   </center>

@@ -9,13 +9,13 @@ if($mysqli->connect_errno) {
   die('Sorry the connection was not successful');
 }
 
-$main_forums = $mysqli->query("select * from created_forum_forum") or die($mysqli->error);
+$main_forums = $mysqli->query("select * 
+                               from created_forum_forum c, admin a
+                               where c.email = a.email
+                               order by date_created") or die($mysqli->error);
 $forum_rows = $main_forums->fetch_all(MYSQLI_ASSOC);
 
-for($i=0; $i < sizeof($forum_rows); $i++) {
-  //echo '<pre>',print_r($forum_rows[$i]), '</pre>';
-  $content[$i] = $forum_rows[$i]['fName'];
-}
+$content = $forum_rows;
 
 $user_comment_all;
 $users_comment_all = $mysqli->query("select username 

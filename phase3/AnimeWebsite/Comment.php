@@ -90,9 +90,9 @@ require "./Forum_globals.php";
                       $comment_list = $comments->fetch_all(MYSQLI_ASSOC);
                       foreach ($comment_list as $comment) {
                         //echo '<pre>',print_r($subtopic_row),'</pre>';
-                        echo "<div id='forum_content'>
-                                <p>",$comment['msg'],
-                             "</p></div><br>";
+                        echo "<div id='forum_content'><h3>",$comment['msg'],"</h3>
+                              <p>-- ".$comment['email']."</p>
+                              <p>on ".$comment['date_written']."</p></div>";
                       }
                     ?>
                   </center>
