@@ -38,7 +38,7 @@ $string3;
                        $temp=$row["link"];
 
                     
-                    $string1= "<img src=$temp>" . "<br><font color='green'>Title</font>: " . $row["title"]. "<br><font color='green'>Genre</font>: " . $row["genre"]. "<br><font color='green'>Rating</font>: " .
+                    $string1= "<img src=$temp style='width:225px;height:350px;'>" . "<br><font color='green'>Title</font>: " . $row["title"]. "<br><font color='green'>Genre</font>: " . $row["genre"]. "<br><font color='green'>Rating</font>: " .
                             $row["rating"]. "<br><font color='green'>Season</font>: " . $row["season"] . "<br><font color='green'>Status</font>: " . $row["a_status"] 
                             ."<br><font color='green'>Start Date</font>: " . $row["start_date"]. "<br><font color='green'>Studio</font>: " . $row["studio"]."<br><font color='green'>Episodes</font>: " . 
                             $row["num_of_episodes"]."<br><font color='green'>Description</font>: " . $row["description"] . "<br><br><br>";              
@@ -55,7 +55,7 @@ $string3;
 
 
                     
-                    $string2= "<img src=$temp>" . "<br><font color='green'>Title</font>: " . $row["title"]. "<br><font color='green'>Genre</font>: " . 
+                    $string2= "<img src=$temp style='width:225px;height:350px;'>" . "<br><font color='green'>Title</font>: " . $row["title"]. "<br><font color='green'>Genre</font>: " . 
                             $row["genre"]. "<br><font color='green'>Rating</font>: " . $row["rating"]. "<br><font color='green'>Author</font>: " . $row["author"].
                             "<br><font color='green'>Volume</font>: " . $row["volume"].
                             "<br><font color='green'>Publish Date</font>: " . $row["published_date"].
@@ -70,7 +70,7 @@ $string3;
                        $temp=$row["link"];
 
                     
-                    $string3="<img src=$temp>" . "<br><font color='green'>Name</font>: " . $row["cname"]. "<br><font color='green'>rating</font>: " . $row["rating"].
+                    $string3="<img src=$temp style='width:225px;height:350px;'>" . "<br><font color='green'>Name</font>: " . $row["cname"]. "<br><font color='green'>rating</font>: " . $row["rating"].
                             "<br><font color='green'>Description</font>: " . $row["description"]. "<br><br><br>";      }
                     //formatting of final string to display
                     $string4= $stringAnime . $string1 . $stringManga . $string2 . $stringCharacter . $string3;

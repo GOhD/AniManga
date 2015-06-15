@@ -22,10 +22,10 @@ if(isset($_POST['del_title']) && isset($_POST['del_season'])){
     $del_season = $_POST['del_season'];
                 
     if(!empty($del_title)&& !empty($del_season)){
-        $database_anidel = $dbhandle ->query("SELECT * FROM Anime where '$del_title' =Title and '$del_season'= Season")or die($dbhandle->connect_error);
+        $database_anidel = $dbhandle ->query("SELECT * FROM Anime where '$del_title' =Title and '$del_season'= Season")or die($dbhandle->error);
         if(mysqli_num_rows($database_anidel)>0){
             echo "$del_title <br> $del_season<br>";
-            $database_anidel = $dbhandle ->query("DELETE FROM Anime where ('$del_title' =Title and '$del_season'= Season)")or die($dbhandle->connect_error);
+            $database_anidel = $dbhandle ->query("DELETE FROM Anime where ('$del_title' =Title and '$del_season'= Season)")or die($dbhandle->error);
             header('Location: admin_acc.php');
             //$output.= "$del_title season $del_season has been deleted from Team PikaPika anime database yo!<br> Refresh to see your new list~";
         }else{
@@ -49,11 +49,18 @@ if ($result->num_rows){
         $start_date = $row[6];
         $studio = $row[7];
         $num_of_episode = $row[8];
+        $link = $row[9];
         
-        $anime = new AnimeEntity($title, $genre, $rating, $description, $season, $a_status, $start_date,$studio,$num_of_episode);
+        $anime = new AnimeEntity($title, $genre, $rating, $description, $season, $a_status, $start_date,$studio,$num_of_episode, $link);
 
         $output .= 
                 "<table class = 'animeTable'>
+                    
+                <tr>
+                    <th rowspan='10' width = '150px' ><img  src ='$anime->link' /></th>
+                    
+                </tr><br>
+
                 <tr>
                     <th width = '75px' >Title: </th>
                     <td> $anime->title</td>
@@ -99,9 +106,9 @@ if ($result->num_rows){
                 <tr>
                     <th>Number of Episodes: </th>
                     <td>$anime->num_of_episode</td>
-                </tr>
+                </tr><br>
                 
-                <br>
+                
                 
              </table>";
 
@@ -141,7 +148,7 @@ if ($result->num_rows){
                 <ul id="nav">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="Anime.php">Anime</a></li>
-                    <li><a href="Manga.php"><strong>Manga</strong></a></li>
+                    <li><a href="Manga.php">Manga</a></li>
                     <li><a href="VoiceActor.php">VoiceActor</a></li>
                     <li><a href="Character.php">Character</a></li>
                     <li><a href="Forum.php">Forum</a></li>
@@ -152,7 +159,7 @@ if ($result->num_rows){
         <br><br>
         
         <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_acc.php">Admin Main</a><br><br>
-        <a align="center" style="color:lightcyan; font-size:24px" >Delete Anime</a><br><br>
+        <a align="center" style="color:lightcyan; font-size:24px" ><strong>Delete Anime</strong></a><br><br>
         <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_add.php">Add Anime</a><br><br>
         <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_upd.php">Update Anime</a><br><br>
         
@@ -170,6 +177,9 @@ if ($result->num_rows){
            <?php
             print("$output");
             ?>  
+        <footer>
+                <p style="color:whitesmoke;">Created by team Pikapika</p>
+            </footer>
         
         
     </body>

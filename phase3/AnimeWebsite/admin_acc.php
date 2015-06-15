@@ -29,11 +29,18 @@ if ($result->num_rows){
         $start_date = $row[6];
         $studio = $row[7];
         $num_of_episode = $row[8];
+        $link = $row[9];
         
-        $anime = new AnimeEntity($title, $genre, $rating, $description, $season, $a_status, $start_date,$studio,$num_of_episode);
+        $anime = new AnimeEntity($title, $genre, $rating, $description, $season, $a_status, $start_date,$studio,$num_of_episode, $link);
 
         $output .= 
                 "<table class = 'animeTable'>
+                    
+                <tr>
+                    <th rowspan='10' width = '150px' ><img  src ='$anime->link' /></th>
+                    
+                </tr><br>
+                
                 <tr>
                     <th width = '75px' >Title: </th>
                     <td> $anime->title</td>
@@ -79,9 +86,11 @@ if ($result->num_rows){
                 <tr>
                     <th>Number of Episodes: </th>
                     <td>$anime->num_of_episode</td>
-                </tr>
+                </tr><br>
                 
-                <br>
+                
+                
+                
                 
              </table>";
 
@@ -113,7 +122,7 @@ if ($result->num_rows){
             <div id="banner">   
                 
                 <a style="color:whitesmoke; font-size:25px" href="logout.php">Logout</a><br>
-                    <a style="color:greenyellow; font-size:20px" ><?php echo'welcome, '.$_SESSION['username'];?></a>
+                    <a style="color:greenyellow; font-size:20px" ><strong><?php echo'welcome, '.$_SESSION['username'];?></strong></a>
             </div>
  
             
@@ -121,7 +130,7 @@ if ($result->num_rows){
                 <ul id="nav">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="Anime.php">Anime</a></li>
-                    <li><a href="Manga.php"><strong>Manga</strong></a></li>
+                    <li><a href="Manga.php">Manga</a></li>
                     <li><a href="VoiceActor.php">VoiceActor</a></li>
                     <li><a href="Character.php">Character</a></li>
                     <li><a href="Forum.php">Forum</a></li>
@@ -130,17 +139,19 @@ if ($result->num_rows){
         </div>  
         
         <br><br>
-        
-        <a align="center" style="color:lightcyan; font-size:24px">Admin Main</a><br><br>
+        <div id="content_area">
+        <a align="center" style="color:lightcyan; font-size:24px"><strong>Admin Main</strong></a><br><br>
         <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_del.php">Delete Anime</a><br><br>
         <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_add.php">Add Anime</a><br><br>
         <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_upd.php">Update Anime</a><br><br>
-        
+        </div>
         
            <?php
             print("$output");
             ?>  
-        
+        <footer>
+                <p style="color:whitesmoke;">Created by team Pikapika</p>
+            </footer>
         
     </body>
 

@@ -30,7 +30,7 @@ require 'Model/Credentials.php';
                 $img=$row[3];
                 $character = new CharacterEntity($cname, $description, $rating,$img);
                 
-                $output .="<table class = 'mangaTable'> 
+                $output .="<table class = 'animeTable'> 
                               <tr>
                             <th rowspan='6' width = '150px' ><img  src ='$character->link' /></th>                            
                         </tr>

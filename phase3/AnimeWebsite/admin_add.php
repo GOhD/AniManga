@@ -24,13 +24,14 @@ if(isset($_POST['add_title']) && isset($_POST['add_season'])){
     $add_studio =$_POST['add_studio'];
     $add_num_of_episodes =$_POST['add_num_of_episodes'];
     $add_description =$_POST['add_description'];
+    $add_link = $_POST['add_link'];
     
     if(!empty($add_title)&& !empty($add_season)){
         if(is_numeric($add_season)&&  is_string($add_title)){
             mysqli_query($dbhandle,"INSERT INTO Animated_Series (Title) VALUES ('$add_title')") or die($dbhandle->error);
             if(!$add_start_date){
                 $sql="INSERT INTO Anime (Title,Genre, Rating, Description, Season, a_Status, Start_date, Studio, num_of_episodes,link) 
-                        VALUES ('$add_title','$add_genre','$add_rating','$add_description', '$add_season', '$add_a_status', null, '$add_studio', '$add_num_of_episodes',null)";
+                        VALUES ('$add_title','$add_genre','$add_rating','$add_description', '$add_season', '$add_a_status', null, '$add_studio', '$add_num_of_episodes','$add_link')";
                 mysqli_query($dbhandle,$sql)or die($dbhandle->error);
              
                 header('Location: admin_acc.php'); 
@@ -38,7 +39,7 @@ if(isset($_POST['add_title']) && isset($_POST['add_season'])){
             
             
             $sql="INSERT INTO Anime (Title,Genre, Rating, Description, Season, a_Status, Start_date, Studio, num_of_episodes,link) 
-                        VALUES ('$add_title','$add_genre','$add_rating','$add_description', '$add_season', '$add_a_status', '$add_start_date', '$add_studio', '$add_num_of_episodes',null)";
+                        VALUES ('$add_title','$add_genre','$add_rating','$add_description', '$add_season', '$add_a_status', '$add_start_date', '$add_studio', '$add_num_of_episodes','$add_link')";
             mysqli_query($dbhandle,$sql)or die($dbhandle->error);
              
            header('Location: admin_acc.php'); 
@@ -65,11 +66,18 @@ if ($result->num_rows){
         $start_date = $row[6];
         $studio = $row[7];
         $num_of_episode = $row[8];
+        $link=$row[9];
         
-        $anime = new AnimeEntity($title, $genre, $rating, $description, $season, $a_status, $start_date,$studio,$num_of_episode);
+        $anime = new AnimeEntity($title, $genre, $rating, $description, $season, $a_status, $start_date,$studio,$num_of_episode,$link);
 
         $output .= 
                 "<table class = 'animeTable'>
+
+                <tr>
+                    <th rowspan='10' width = '150px' ><img  src ='$anime->link' /></th>
+                    
+                </tr><br>
+
                 <tr>
                     <th width = '75px' >Title: </th>
                     <td> $anime->title</td>
@@ -115,9 +123,9 @@ if ($result->num_rows){
                 <tr>
                     <th>Number of Episodes: </th>
                     <td>$anime->num_of_episode</td>
-                </tr>
+                </tr><br>
                 
-                <br>
+                
                 
              </table>";
 
@@ -157,7 +165,7 @@ if ($result->num_rows){
                 <ul id="nav">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="Anime.php">Anime</a></li>
-                    <li><a href="Manga.php"><strong>Manga</strong></a></li>
+                    <li><a href="Manga.php">Manga</a></li>
                     <li><a href="VoiceActor.php">VoiceActor</a></li>
                     <li><a href="Character.php">Character</a></li>
                     <li><a href="Forum.php">Forum</a></li>
@@ -169,7 +177,7 @@ if ($result->num_rows){
         
         <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_acc.php">Admin Main</a><br><br>
         <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_del.php">Delete Anime</a><br><br>
-        <a align="center" style="color:lightcyan; font-size:24px" >Add Anime</a><br><br>
+        <a align="center" style="color:lightcyan; font-size:24px" ><strong>Add Anime</strong></a><br><br>
         <a align="center" style="color:lightsteelblue; font-size:22px" href="admin_upd.php">Update Anime</a><br><br>
         
         
@@ -199,6 +207,9 @@ if ($result->num_rows){
             <a style="color:lightgoldenrodyellow; font-size:18px">number of episodes:</a><br>  
             <input type ="text" name ="add_num_of_episodes"><br><br>
             
+            <a style="color:lightgoldenrodyellow; font-size:18px">add URL of image to go with anime:</a><br>  
+            <input type ="text" name ="add_link" ><br><br>
+            
             <a style="color:lightgoldenrodyellow; font-size:18px">description:</a><br>  
             <textarea name ="add_description" row="10" cols="60" style="width:400px; height:200px;"></textarea><br><br>
             
@@ -210,6 +221,9 @@ if ($result->num_rows){
            <?php
             print("$output");
             ?>  
+        <footer>
+                <p style="color:whitesmoke;">Created by team Pikapika</p>
+            </footer>
         
         
     </body>

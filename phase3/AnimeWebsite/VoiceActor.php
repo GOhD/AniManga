@@ -29,9 +29,9 @@ require ("Model/Credentials.php");
                 $link=$row[4];
                 $voiceActor = new VoiceActorEntity($birthday, $gender, $biography, $vname,$link);
                 
-                $output .="<table class = 'mangaTable'> 
+                $output .="<table class = 'animeTable'> 
                              <tr>
-                            <th rowspan='6' width = '150px' ><img  src ='$voiceActor->link' /></th>                            
+                            <th rowspan='6' width = '225px' height='400' ><img  src ='$voiceActor->link' /></th>                            
                         </tr>
                         <tr>
                             <th>Name: </th>

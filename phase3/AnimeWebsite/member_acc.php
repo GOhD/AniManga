@@ -16,7 +16,9 @@ $output='';
                     $database_fav = $dbhandle ->query("SELECT * FROM Favored where '$del_fav' =Title")or die(mysqli_error('ayaya'));
                     if(mysqli_num_rows($database_fav)==1){
                         $database_fav = $dbhandle ->query("Delete FROM Favored where '$del_fav' =Title")or die(mysqli_error('ayaya'));
-                        $output.= "$del_fav has been deleted from your favourited list yo!<br> Refresh to see your new list~";
+                        //$output.= "$del_fav has been deleted from your favourited list yo!<br> Refresh to see your new list~";
+                        header('Location: member_acc.php');
+                        
                     }else{
                         $output.= "$del_fav is not in your favourited list yo!";
                     }
@@ -35,8 +37,9 @@ $output='';
 
                         mysqli_query($dbhandle,"INSERT INTO Favored (Title,Email) 
                         VALUES ('$row[0]','$uEmail')");
+                        header('Location: member_acc.php');
 
-                        $output.= "$add_fav has been added to your favourited list yo!<br> Refresh to see your new list~";
+                        //$output.= "$add_fav has been added to your favourited list yo!<br> Refresh to see your new list~";
                     }else{
                         $output.= "$add_fav is not in our anime database yo!";
                     }
@@ -62,7 +65,7 @@ $output='';
             <div id="banner">   
                 
                 <a style="color:whitesmoke; font-size:25px" href="Logout.php">Logout</a><br>
-                    <a style="color:greenyellow; font-size:20px" ><?php echo'welcome, '.$_SESSION['username'];?></a>
+                    <a style="color:greenyellow; font-size:20px" ><strong><?php echo'welcome, '.$_SESSION['username'];?></strong></a>
             </div>
  
             
@@ -70,7 +73,7 @@ $output='';
                 <ul id="nav">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="Anime.php">Anime</a></li>
-                    <li><a href="Manga.php"><strong>Manga</strong></a></li>
+                    <li><a href="Manga.php">Manga</a></li>
                     <li><a href="VoiceActor.php">VoiceActor</a></li>
                     <li><a href="Character.php">Character</a></li>
                     <li><a href="Forum.php">Forum</a></li>
