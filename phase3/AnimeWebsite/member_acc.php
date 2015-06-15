@@ -14,8 +14,8 @@ $output='';
                 
                 if(!empty($del_fav)){
                     $database_fav = $dbhandle ->query("SELECT * FROM Favored where '$del_fav' =Title")or die(mysqli_error('ayaya'));
-                    if(mysqli_num_rows($database_fav)==1){
-                        $database_fav = $dbhandle ->query("Delete FROM Favored where '$del_fav' =Title")or die(mysqli_error('ayaya'));
+                    if(mysqli_num_rows($database_fav)>0){
+                        $database_fav = $dbhandle ->query("Delete FROM Favored where '$del_fav' =Title and '$uEmail'=Email")or die(mysqli_error('ayaya'));
                         //$output.= "$del_fav has been deleted from your favourited list yo!<br> Refresh to see your new list~";
                         header('Location: member_acc.php');
                         
