@@ -1,5 +1,5 @@
 <?php
-
+$title = "Anime";
 
 require ("./Model/Credentials.php");
  $output = '';
@@ -105,10 +105,11 @@ require ("./Model/Credentials.php");
                     <li><a href="Forum.php">Forum</a></li>
                 </ul>
             </nav>
-        </div>  
+          
         <!--This part is for the search by genre for manga, we use the query for selection -->
+        <div id="content_area">
         <form action ="Anime.php"   method ="post">
-         <input type ="submit" name = "select" value = "search for the studio that produce >>">
+         <input type ="submit" name = "select" value = "search for the studio that produce >>" size = "40">
          <br>
          <input type="radio" name="choice" id = "choose_max" value="max" >max
          <br>
@@ -119,8 +120,13 @@ require ("./Model/Credentials.php");
       <?php
       print("$output");
       ?>  
+     </div>   
+    
         
-        
+        <footer>
+        <p style="color:whitesmoke;">Created by team Pikapika</p>
+    </footer>
+</div>
     </body>
 
 </html>

@@ -32,9 +32,7 @@ require 'Model/Credentials.php';
                 
                 $output .="<table class = 'mangaTable'> 
                               <tr>
-
                             <th rowspan='6' width = '150px' ><img  src ='$character->link' /></th>                            
-
                         </tr>
                         <tr>
                             <th>Name: </th>
@@ -53,7 +51,10 @@ require 'Model/Credentials.php';
                         <tr><td colspan='2' >
                         <form action ='liker.php?type=$character->cname'   method ='post'>
                         <input type ='submit' value = 'Like!!!'>
-                                                </form> 
+                        </form> 
+                        <form action ='dislike.php?type=$character->cname'   method ='post'>
+                        <input type ='submit' value = 'Dislike!!!'>
+                        </form> 
                         </td>
                          </tr>
         

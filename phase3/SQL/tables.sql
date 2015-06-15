@@ -23,7 +23,7 @@ CREATE TABLE Anime
 (
 Title   char(100),
 Genre  char(255),
-Rating  int ,
+Rating  int check(Rating >0),
 Description  text,
 Season  int,
 a_Status  char(100),
@@ -38,7 +38,7 @@ Foreign key (Title) REFERENCES Animated_Series(Title) on delete cascade on updat
 CREATE TABLE Manga
 (Title   char(100),
 Genre  char(200),
-Rating   int ,
+Rating   int check(Rating >0),
 Description  text,
 Author   char (100),
 Volume  int,
@@ -59,10 +59,12 @@ Primary key (Birthday, Vname))ENGINE=InnoDB;
 CREATE TABLE my_Character 
 (Cname    char(100),
  Description   text,
- Rating   int,
+ Rating   int check(Rating >0),
  link varchar(255),
 Primary key (Cname))ENGINE=InnoDB;
 
+
+    
 CREATE TABLE Users
 (
 Email char(100),
