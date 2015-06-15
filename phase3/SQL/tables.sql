@@ -426,6 +426,10 @@ insert into comment_write_contain values
 (5, 'The site is not displaying correctly on Firefox.',
 'Hello admins, the site is not displaying correctly for me in Firefox. The format seems to be all over the place.',
 '2015-06-12',
-'joe@hotmail.com');
+'joe@hotmail.com'),
+(2, 'Add a feature to keep track of our favourite animes!', 'Hi, this is a test comment.', '2015-06-14', 'frank_rui@hotmail.com'),
+(3, 'Who is your favourite anime character?', 'Hi, this is another test comment.', '2015-06-14', 'frank_rui@hotmail.com'),
+(4, 'Which manga should I read if I like action and fantasy?', 'This is another test comment.', '2015-06-14', 'frank_rui@hotmail.com'),
+(5, 'The site is not displaying correctly on Firefox.', 'Another test comment.', '2015-06-14', 'frank_rui@hotmail.com');
 
 #SHOW ENGINE INNODB STATUS;
