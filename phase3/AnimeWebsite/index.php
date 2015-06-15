@@ -1,6 +1,6 @@
 <?php
 $title = "Home";
-
+session_start();
 
 
 include 'Model/Credentials.php';
