@@ -32,19 +32,29 @@ if(isset($_POST['add_title']) && isset($_POST['add_season'])){
             if(mysqli_num_rows($ala)==0)
                 mysqli_query($dbhandle,"INSERT INTO Animated_Series (Title) VALUES ('$add_title')") or die($dbhandle->error);
             if(!$add_start_date){
-                $sql="INSERT INTO Anime (Title,Genre, Rating, Description, Season, a_Status, Start_date, Studio, num_of_episodes,link) 
+                $k = $dbhandle ->query("select * from Anime where '$add_title'=Title and '$add_season'=Season")or die($dbhandle->error);
+                if(mysqli_num_rows($k)==0){
+                    $sql="INSERT INTO Anime (Title,Genre, Rating, Description, Season, a_Status, Start_date, Studio, num_of_episodes,link) 
                         VALUES ('$add_title','$add_genre','$add_rating','$add_description', '$add_season', '$add_a_status', null, '$add_studio', '$add_num_of_episodes','$add_link')";
-                mysqli_query($dbhandle,$sql)or die($dbhandle->error);
+                    mysqli_query($dbhandle,$sql)or die($dbhandle->error);
+                    header('Location: admin_acc.php'); 
+                }else{
+                    $output .= "duplicate anime title and season number";
+                }
+                
              
-                header('Location: admin_acc.php'); 
-            }
-            
-            
-            $sql="INSERT INTO Anime (Title,Genre, Rating, Description, Season, a_Status, Start_date, Studio, num_of_episodes,link) 
+                
+            }else{
+                $k = $dbhandle ->query("select * from Anime where '$add_title'=Title and '$add_season'=Season")or die($dbhandle->error);
+                if(mysqli_num_rows($k)==0){
+                    $sql="INSERT INTO Anime (Title,Genre, Rating, Description, Season, a_Status, Start_date, Studio, num_of_episodes,link) 
                         VALUES ('$add_title','$add_genre','$add_rating','$add_description', '$add_season', '$add_a_status', '$add_start_date', '$add_studio', '$add_num_of_episodes','$add_link')";
-            mysqli_query($dbhandle,$sql)or die($dbhandle->error);
-             
-           header('Location: admin_acc.php'); 
+                    mysqli_query($dbhandle,$sql)or die($dbhandle->error);
+                    header('Location: admin_acc.php'); 
+                }else{
+                    $output .= "duplicate anime title and season number";
+                }
+            }
            
         }else{
             $output .= "title must be string and season must be an integer value";
