@@ -8,6 +8,10 @@ require "./Forum_globals.php";
 if(isset($_SESSION['useremail'])) {
   $current_useremail = $_SESSION['useremail'];
 }
+$selected;
+if(isset($_POST['selected'])) {
+  $selected = $_POST['selected'];
+}
 
 ?>
 
@@ -38,7 +42,13 @@ if(isset($_SESSION['useremail'])) {
                padding:5px;
           }
 
-          
+          #button {
+               background-color:#FFCCFF;
+               padding:5px;
+               border-style:inset;
+               border-width:10px;
+               border-color:#00CCFF;
+          }
                
 
         </style>
@@ -67,6 +77,20 @@ if(isset($_SESSION['useremail'])) {
                     <li><a href="Forum.php"><strong>Forum</strong></a></li>
                 </ul>
             </nav>
+            
+            <div id="button">
+              <form action="Forum.php" method="post">
+                <input type="submit" name="selected" value="Click to see which members has commented in every forum!">
+              </form>
+              <?php
+                if(isset($_POST['selected'])) {
+                  echo "<h2><center>Here are the users that commented in every forum</center></h2>";
+                  foreach($user_comment_all as $username) {
+                    echo '<center>'.$username.'</center><br>';
+                  }
+                }
+              ?>
+            </div>
             
             <div id="main">
               <center><h1>Main Forum</h1></center>
