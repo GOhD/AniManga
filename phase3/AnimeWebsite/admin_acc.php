@@ -121,7 +121,7 @@ if ($result->num_rows){
         <div id="wrapper">
             <div id="banner">   
                 
-                <a style="color:whitesmoke; font-size:25px" href="logout.php">Logout</a><br>
+                <a style="color:lightblue; font-size:25px" href="logout.php">Logout</a><br>
                     <a style="color:greenyellow; font-size:20px" ><strong><?php echo'welcome, '.$_SESSION['username'];?></strong></a>
             </div>
  

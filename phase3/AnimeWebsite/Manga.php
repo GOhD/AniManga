@@ -90,11 +90,11 @@ if (isset($_POST['search_genre'])) {
         <div id="wrapper">
             <div id="banner">   
               <?php if(isset($_SESSION['useremail'])) {
-                       echo '<a style="color:whitesmoke; font-size:25px" href="Logout.php">Logout</a><br>
+                       echo '<a style="color:lightblue; font-size:25px" href="Logout.php">Logout</a><br>
                              <a style="color:greenyellow; font-size:20px" >' . 'Welcome, ' . $_SESSION['username'].'</a>';
                     } else {
-                       echo '<a style="color:whitesmoke; font-size:25px" href="Login.php">Login</a>
-                             <a style="color:whitesmoke; font-size:25px" href="Register.php">Register</a>';
+                       echo '<a style="color:lightblue; font-size:25px" href="Login.php">Login</a>
+                             <a style="color:lightblue; font-size:25px" href="Register.php">Register</a>';
                     }
               ?>
             </div>

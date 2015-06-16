@@ -21,11 +21,12 @@ body p
 
 #banner
 {
-    background-image: url(../Images/Anime/Neon-Genesis-Evangelion.jpg);
+    background-image: url(../Images/Anime/teamPikaPika.png);
     background-repeat: no-repeat;
     background-size: cover;
     border: 5px solid #dedede;    
-    height: 300px;
+    height: 500px;
+    width: 1070px;
 }
 
 #content_area
