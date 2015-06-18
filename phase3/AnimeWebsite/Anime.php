@@ -73,6 +73,58 @@ require ("./Model/Credentials.php");
             
             
             }
+            
+            if (isset($_POST['select2'])){
+            
+            switch($_POST['user_select']) {
+                case "genre":
+                
+                $result = $db->query("SELECT Title, genre from anime") or die($db->error);
+                $count = $result->num_rows;
+                echo 'yay, there are '.$count.' results that meet ur input!';
+                while($row = mysqli_fetch_array($result)){
+                $output .= 
+                        "<table>
+                        <tr>
+                            <th>Title: </th>
+                            <td>$row[0]</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Genre: </th>
+                            <td>$row[1]</td>
+                        </tr>
+                        </table>";
+                }
+                break;
+            
+                
+            
+                case "status":
+           
+                $result = $db->query("SELECT Title, a_status from anime") or die($db->error);
+                $count = $result->num_rows;
+                echo 'yay, there are '.$count.' results that meet ur input!';
+                while($row = mysqli_fetch_array($result)){
+                $output .= 
+                        "<table>
+                        <tr>
+                            <th>Title: </th>
+                            <td>$row[0]</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Status: </th>
+                            <td>$row[1]</td>
+                        </tr>
+                        </table>";
+                }
+                break;
+             
+            }
+            
+            
+            }
         
 ?>
 
@@ -112,11 +164,19 @@ require ("./Model/Credentials.php");
         <!--This part is for the search by genre for manga, we use the query for selection -->
         <div id="content_area">
         <form action ="Anime.php"   method ="post">
-         <input type ="submit" name = "select" value = "search for the studio that produce >>" size = "40">
+         
+         <input type ="submit" name = "select" value = "search for the studio that produce >>" size = "40"/>
          <br>
-         <input type="radio" name="choice" id = "choose_max" value="max" >max
+         <input type="radio" name="choice" id = "choose_max" value="max" />max
          <br>
-         <input type="radio" name="choice" id = "choose_min" value="min">min
+         <input type="radio" name="choice" id = "choose_min" value="min"/>min
+         <br>
+         <input type ="submit" name = "select2" value = "search for anime ... >>" size = "40"/>
+         <br>
+         <input type="radio" name="user_select" id = "choose_title" value="genre" />genre
+         <br>
+         <input type="radio" name="user_select" id = "choose_status" value="status"/>status
+         <br>
         </form> 
         
          
