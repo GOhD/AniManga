@@ -21,7 +21,7 @@ if(isset($_POST['del_title']) && isset($_POST['del_season'])){
     $del_title = $_POST['del_title'];
     $del_season = $_POST['del_season'];
                 
-    if(!empty($del_title)&& !empty($del_season)){
+    if(!empty($del_title)&& !empty($del_season)){ 
         $database_anidel = $dbhandle ->query("SELECT * FROM Anime where '$del_title' =Title and '$del_season'= Season")or die($dbhandle->error);
         if(mysqli_num_rows($database_anidel)>0){
             echo "$del_title <br> $del_season<br>";
