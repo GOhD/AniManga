@@ -5,7 +5,7 @@ $dbhandle = mysqli_connect($host, $user, $passwd,$database)
   or die("Unable to connect to MySQL");
 
 if(isset($_POST['password'])&&isset($_POST['email_login'])){
-    $password =$_POST['password'];
+    $password =$_POST['password']; // This is the original password input from the user
     $email_login =$_POST['email_login'];
     if(empty($password)||empty($email_login)){
         echo 'please fill in both blanks';
@@ -17,7 +17,7 @@ if(isset($_POST['password'])&&isset($_POST['email_login'])){
             
             if($email_login==$row[0]) { 
                 echo 'ayaya finally';
-                if($row[3] == $password){
+                if(hash_equals($row[3],crypt($password,$hashed_password)) ){
                     session_start();
                     $_SESSION['username']=$row[2];
                     $_SESSION['useremail']=$email_login;

@@ -50,17 +50,21 @@ if (!empty($_POST)) {
             ) VALUES ( 
                 '$email' 
             )") or die($db->error);
+    // Add security measure, first add salt and then hash
+    $salt = dechex(mt_rand(0, 20140619));
+    $hashed_password = crypt($password, $salt);
 
     $db->query("INSERT INTO Member ( 
                 Email, 
                 r_Name, 
                 Username, 
-                Password 
+                hashed_Password 
             ) VALUES ( 
                 '$email', 
                 '$realname', 
                 '$username', 
-                '$password' 
+                '$hashed_password',
+                 '$salt'   
             )") or die($db->error);
     
     echo "<script type='text/javascript'> alert('Success!')</script>";
