@@ -3,6 +3,7 @@ require 'Model/Credentials.php';
 //connection to the database
 $db = mysqli_connect($host, $user, $passwd, $database)
         or die("Unable to connect to MySQL");
+
 if (!empty($_POST)) {
     // Ensure that the user fills out fields 
     if (empty($_POST['username'])) {
@@ -58,14 +59,14 @@ if (!empty($_POST)) {
                 Email, 
                 r_Name, 
                 Username, 
-                hashed_Password 
+                hashed_Password,
+                salt
             ) VALUES ( 
                 '$email', 
                 '$realname', 
                 '$username', 
                 '$hashed_password',
-                 '$salt'   
-            )") or die($db->error);
+                 '$salt')") or die($db->error);
     
     echo "<script type='text/javascript'> alert('Success!')</script>";
 
@@ -128,7 +129,11 @@ if (!empty($_POST)) {
                 <input type="text" name="realname" value="" /> 
                 <label>Password:</label> 
                 <input type="password" name="password" value="" /> <br /><br />
-                <p style="color:darkred;">* You may enter a false email address if desired.</p><br />
+                <p style="color:darkred;">* You may enter a false email address if desired.
+                <?php
+                echo dechex(mt_rand(0, 20140619));
+                ?>
+                </p><br />
                 <input type="submit" class="btn btn-info" value="Register" /> 
             </form>
         </div>

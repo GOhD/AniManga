@@ -17,7 +17,7 @@ if(isset($_POST['password'])&&isset($_POST['email_login'])){
             
             if($email_login==$row[0]) { 
                 echo 'ayaya finally';
-                if(hash_equals($row[3],crypt($password,$hashed_password)) ){
+                if(hash_equals($row[3],crypt($password,$row[4])) ){
                     session_start();
                     $_SESSION['username']=$row[2];
                     $_SESSION['useremail']=$email_login;

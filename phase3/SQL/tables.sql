@@ -86,7 +86,8 @@ CREATE TABLE Member
 Email char (100),
 r_Name char (100),
 Username  char (100), 
-Password  char (20),
+hashed_Password  char (20),
+salt   char(255),
 Primary key (Email),
 Foreign key (Email) REFERENCES Users(Email) on delete cascade on update cascade
 )ENGINE=InnoDB;
@@ -364,12 +365,12 @@ insert into Admin values
 ('joe@hotmail.com', 'Joe Mckay', 'whyamihere', 'nolife7643');
 
 insert into Member values
-('frank_rui@hotmail.com', 'Frank Rui', 'animefreak', 'iloveanime275'),
-('weininghu1012@gmail.com', 'Weining Hu', 'jigglypuff', 'animeforever'),
-('eiser@gmail.com', 'Yozu Liang', 'pichubear', 'ahaha5478'),
-('liangjiaxing57@gmail.com', 'Jiaxing Liang', 'pikapika', 'whatever'),
-('shehryartariq82@hotmail.com', 'Shehryar Awan', 'GOhDi55mDream', 'whatarewedoing'),
-('john_smith@gmail.com', 'John Smith', 'animeislove', 'animeislife');
+('frank_rui@hotmail.com', 'Frank Rui', 'animefreak', 'iloveanime275',null),
+('weininghu1012@gmail.com', 'Weining Hu', 'jigglypuff', 'animeforever',null),
+('eiser@gmail.com', 'Yozu Liang', 'pichubear', 'ahaha5478',null),
+('liangjiaxing57@gmail.com', 'Jiaxing Liang', 'pikapika', 'whatever',null),
+('shehryartariq82@hotmail.com', 'Shehryar Awan', 'GOhDi55mDream', 'whatarewedoing',null),
+('john_smith@gmail.com', 'John Smith', 'animeislove', 'animeislife',null);
 
 insert into Created_Forum_Forum values
 (1, 'fx7384@gmail.com', 'General Discussion', '2015-06-03'),
