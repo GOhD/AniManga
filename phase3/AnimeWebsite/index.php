@@ -12,6 +12,8 @@ $dbhandle = mysqli_connect($host, $user, $passwd,$database)
 
 
 
+
+
 //query to check for a random Anime recommendation
 
 $resultAnime = mysqli_query($dbhandle,"SELECT title,genre,rating,description,season,a_status,start_date,studio,num_of_episodes,link from anime ORDER BY RAND() LIMIT 1");
