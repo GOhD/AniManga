@@ -14,6 +14,30 @@ BOT_NAME = 'scrapy_mangafox'
 SPIDER_MODULES = ['scrapy_mangafox.spiders']
 NEWSPIDER_MODULE = 'scrapy_mangafox.spiders'
 DOWNLOAD_HANDLERS = {'s3': None,}
+ITEM_PIPELINES = {'scrapy_mangafox.pipelines.ScrapyMangafoxPipeline': 300 }
+CONCURRENT_REQUESTS=100
+
+# Database information
+DB_SERVER = 'MySQLdb'
+
+DB_CONNECT = {
+	'db':'animanga',
+	'user':'root',
+	'passwd':'root',
+	'host':'localhost',
+	'charset':'utf8',
+	'use_unicode':'True'
+
+}
+
+'''
+DB_HOST = 'localhost'
+DB_PORT = 3306
+DB_USER = 'root'
+DB_PASSWD = 'root'
+DB_DB = 'animanga'
+'''
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'scrapy_mangafox (+http://www.yourdomain.com)'

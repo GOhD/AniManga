@@ -15,13 +15,13 @@ Drop Table Users;
 
 CREATE TABLE Animated_Series
 (
-Title char(100),
+Title char(255),
 primary key (Title)
 );
 
 CREATE TABLE Anime
 (
-Title   char(100),
+Title   char(255),
 Genre  char(255),
 Rating  int check(Rating >0),
 Description  text,
@@ -36,7 +36,7 @@ Foreign key (Title) REFERENCES Animated_Series(Title) on delete cascade on updat
 )ENGINE=InnoDB;
 
 CREATE TABLE Manga
-(Title   char(100),
+(Title   char(255),
 Genre  char(200),
 Rating   int check(Rating >0),
 Description  text,

@@ -19,7 +19,7 @@ class MangafoxItem(scrapy.Item):
     description = scrapy.Field()
     authors = scrapy.Field()
 
-    # volume = scrapy.Field()
+    volume = scrapy.Field()
     published = scrapy.Field()
     # link_to_profile = scrapy.Field()
     link = scrapy.Field()
